@@ -3,380 +3,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kindora Holidays</title>
+<title>Kindora Holidays — Explore India & Beyond</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --saffron:#FF6B00;--saffron2:#FF9A3C;--deep:#0A0A0F;--navy:#060D1F;
+  --saffron:#FF6B00;--saffron2:#FF9A3C;--deep:#07101F;--navy:#0B1628;
   --gold:#D4AF37;--gold2:#F5D76E;--cream:#FFF8EE;--white:#FFFFFF;
-  --glass:rgba(255,255,255,0.07);--glassborder:rgba(255,255,255,0.12);
-  --text:rgba(255,255,255,0.88);--muted:rgba(255,255,255,0.5);
+  --glass:rgba(255,255,255,0.07);--glassborder:rgba(255,255,255,0.15);
+  --text:rgba(255,255,255,0.9);--muted:rgba(255,255,255,0.55);
 }
-html{scroll-behavior:smooth;font-size:16px}
+html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--deep);color:var(--text);overflow-x:hidden}
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-thumb{background:var(--saffron);border-radius:2px}
 
-/* NAV */
+/* ===== NAV ===== */
 #nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
-  padding:0 4%;height:70px;
+  padding:0 4%;height:72px;
   display:flex;align-items:center;justify-content:space-between;
-  transition:all 0.5s ease;
+  background:rgba(7,16,31,0.6);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(212,175,55,0.2);
+  transition:all 0.4s ease;
 }
 #nav.solid{
-  background:rgba(6,13,31,0.97);
-  backdrop-filter:blur(24px);
-  border-bottom:1px solid rgba(212,175,55,0.15);
-  height:60px;
+  background:rgba(7,16,31,0.98);
+  border-bottom-color:rgba(212,175,55,0.25);
+  height:62px;
 }
-.logo{
-  display:flex;
-  align-items:center;
-  height:60px;
+.logo{display:flex;align-items:center;cursor:pointer}
+.main-logo{
+  height:52px;width:auto;
+  object-fit:contain;display:block;
+  filter:drop-shadow(0 2px 8px rgba(212,175,55,0.3));
 }
-  .main-logo{
-  height:70px;
-  width:auto;
-  object-fit:contain;
-  display:block;
-}
-.logo-icon{
-  width:42px;height:42px;border-radius:12px;
-  background:linear-gradient(135deg,var(--saffron),var(--gold));
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;font-weight:900;color:#fff;
-  font-family:'Space Grotesk',sans-serif;
-}
-.logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff}
-.logo-sub{font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-top:1px}
 .nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;transition:color 0.3s;letter-spacing:0.3px}
+.nav-links a{
+  color:rgba(255,255,255,0.82);text-decoration:none;
+  font-size:13.5px;font-weight:500;transition:color 0.3s;
+  letter-spacing:0.3px;
+}
 .nav-links a:hover{color:var(--gold)}
 .nav-actions{display:flex;align-items:center;gap:12px}
+
+/* FIX: Language dropdown - fully visible */
 .lang-sel{
-  background:var(--glass);border:1px solid var(--glassborder);
-  color:var(--text);padding:6px 12px;border-radius:8px;
-  font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;
+  background:rgba(255,255,255,0.12);
+  border:1.5px solid rgba(255,255,255,0.35);
+  color:#ffffff !important;
+  padding:7px 14px;border-radius:8px;
+  font-size:12.5px;font-weight:500;
+  cursor:pointer;font-family:'Inter',sans-serif;
   transition:all 0.3s;
+  -webkit-appearance:none;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='white'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 10px center;
+  padding-right:28px;
+  outline:none;
 }
-.lang-sel:hover{background:rgba(255,255,255,0.1)}
+.lang-sel option{background:#0B1628;color:#ffffff}
+.lang-sel:hover{background:rgba(255,255,255,0.2);border-color:var(--gold)}
+.lang-sel:focus{border-color:var(--gold)}
+
 .cta-btn{
   background:linear-gradient(135deg,var(--saffron),var(--saffron2));
-  color:#fff;border:none;padding:9px 22px;border-radius:25px;
-  font-size:13px;font-weight:600;cursor:pointer;
-  font-family:'Inter',sans-serif;
-  transition:all 0.3s;
-  box-shadow:0 4px 20px rgba(255,107,0,0.3);
+  color:#fff;border:none;padding:10px 24px;border-radius:25px;
+  font-size:13px;font-weight:700;cursor:pointer;
+  font-family:'Inter',sans-serif;transition:all 0.3s;
+  box-shadow:0 4px 20px rgba(255,107,0,0.4);
+  letter-spacing:0.3px;
 }
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,107,0,0.45)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,107,0,0.55)}
 
-/* HERO */
-#hero{
-  min-height:100vh;position:relative;
-  display:flex;align-items:center;
-  overflow:hidden;
+/* Mobile hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s}
+.mobile-menu{
+  display:none;position:fixed;top:62px;left:0;right:0;
+  background:rgba(7,16,31,0.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(212,175,55,0.2);
+  padding:20px 4%;z-index:999;
 }
+.mobile-menu.open{display:block}
+.mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+.mobile-menu a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:15px;font-weight:500}
+
+/* ===== HERO ===== */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
 .hero-slides{position:absolute;inset:0}
-.slide{
-  position:absolute;inset:0;opacity:0;
-  transition:opacity 1.5s ease;
-}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease}
 .slide.active{opacity:1}
 .slide img{width:100%;height:100%;object-fit:cover}
 .slide-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(
-    110deg,
-    rgba(6,13,31,0.95) 0%,
-    rgba(6,13,31,0.7) 50%,
-    rgba(6,13,31,0.3) 100%
-  );
+  background:linear-gradient(110deg,rgba(7,16,31,0.93) 0%,rgba(7,16,31,0.65) 50%,rgba(7,16,31,0.35) 100%);
 }
 .hero-body{
   position:relative;z-index:3;
-  padding:0 4%;padding-top:70px;
-  max-width:780px;
+  padding:100px 4% 60px;
+  max-width:800px;
 }
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;
-  background:rgba(212,175,55,0.12);
-  border:1px solid rgba(212,175,55,0.3);
-  color:var(--gold2);padding:7px 16px;border-radius:25px;
-  font-size:11px;font-weight:600;letter-spacing:2px;
-  text-transform:uppercase;margin-bottom:26px;
+  background:rgba(212,175,55,0.14);
+  border:1px solid rgba(212,175,55,0.35);
+  color:var(--gold2);padding:7px 18px;border-radius:25px;
+  font-size:11px;font-weight:600;letter-spacing:2.5px;
+  text-transform:uppercase;margin-bottom:28px;
+  animation:fadeUp 0.8s ease both;
 }
-.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:dot 2s infinite}
-@keyframes dot{0%,100%{opacity:1}50%{opacity:0.3}}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:dot 2s infinite;flex-shrink:0}
+@keyframes dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.6)}}
 .hero-h1{
   font-family:'Playfair Display',serif;
-  font-size:clamp(46px,7vw,90px);
+  font-size:clamp(48px,7.5vw,92px);
   font-weight:900;color:#fff;
-  line-height:1.0;margin-bottom:22px;
+  line-height:1.0;margin-bottom:24px;
+  animation:fadeUp 0.8s 0.1s ease both;
 }
 .h1-line1{display:block;color:#fff}
 .h1-line2{
   display:block;font-style:italic;
-  background:linear-gradient(90deg,var(--gold),var(--saffron2));
+  background:linear-gradient(90deg,var(--gold),var(--saffron2),var(--gold));
+  background-size:200%;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shimmer 4s linear infinite;
 }
+@keyframes shimmer{0%{background-position:0%}100%{background-position:200%}}
 .h1-line3{
   display:block;
-  -webkit-text-stroke:1px var(--gold);
+  -webkit-text-stroke:1.5px var(--gold);
   color:transparent;
 }
 .hero-p{
-  font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);
-  max-width:500px;margin-bottom:36px;
-  font-weight:300;
+  font-size:15.5px;line-height:1.85;color:rgba(255,255,255,0.68);
+  max-width:520px;margin-bottom:38px;font-weight:300;
+  animation:fadeUp 0.8s 0.2s ease both;
 }
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:60px;animation:fadeUp 0.8s 0.3s ease both}
 .btn-primary{
   background:linear-gradient(135deg,var(--saffron),var(--saffron2));
-  color:#fff;border:none;padding:14px 32px;
-  border-radius:40px;font-size:14px;font-weight:600;
-  cursor:pointer;font-family:'Inter',sans-serif;
-  transition:all 0.3s;
-  box-shadow:0 6px 24px rgba(255,107,0,0.35);
+  color:#fff;border:none;padding:15px 34px;border-radius:40px;
+  font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;
+  transition:all 0.3s;box-shadow:0 6px 24px rgba(255,107,0,0.4);
 }
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(255,107,0,0.5)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(255,107,0,0.55)}
 .btn-outline{
   background:transparent;color:#fff;
-  border:1.5px solid rgba(255,255,255,0.3);
-  padding:14px 32px;border-radius:40px;
+  border:1.5px solid rgba(255,255,255,0.35);
+  padding:15px 34px;border-radius:40px;
   font-size:14px;font-weight:500;cursor:pointer;
   font-family:'Inter',sans-serif;transition:all 0.3s;
 }
 .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
 .hero-stats{
-  display:flex;gap:0;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter:blur(12px);
-  border-radius:16px;overflow:hidden;
+  display:flex;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(16px);border-radius:18px;overflow:hidden;
+  animation:fadeUp 0.8s 0.4s ease both;
 }
-.stat{flex:1;padding:18px 16px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)}
+.stat{flex:1;padding:20px 16px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)}
 .stat:last-child{border-right:none}
-.stat-n{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--gold2)}
-.stat-l{font-size:10px;color:var(--muted);letter-spacing:0.5px;margin-top:3px}
-.slide-dots{
-  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
-  z-index:3;display:flex;gap:8px;
-}
-.dot{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,0.3);cursor:pointer;transition:all 0.4s}
-.dot.on{width:24px;background:var(--saffron)}
+.stat-n{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--gold2)}
+.stat-l{font-size:10.5px;color:var(--muted);letter-spacing:0.5px;margin-top:4px}
+.slide-dots{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:8px}
+.dot{width:7px;height:7px;border-radius:4px;background:rgba(255,255,255,0.3);cursor:pointer;transition:all 0.4s}
+.dot.on{width:28px;background:var(--saffron)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-/* TICKER */
-.ticker{
-  background:linear-gradient(90deg,var(--saffron),#E55C00);
-  padding:12px 0;overflow:hidden;
-}
-.ticker-track{
-  display:flex;gap:40px;animation:tick 25s linear infinite;white-space:nowrap
-}
-.ticker-item{
-  color:#fff;font-size:12px;font-weight:600;
-  letter-spacing:1.5px;text-transform:uppercase;
-  display:flex;align-items:center;gap:10px;flex-shrink:0;
-}
-.ticker-sep{color:rgba(255,255,255,0.5);font-size:8px}
+/* ===== TICKER ===== */
+.ticker{background:linear-gradient(90deg,#CC5500,var(--saffron),#CC5500);padding:13px 0;overflow:hidden}
+.ticker-track{display:flex;gap:40px;animation:tick 28s linear infinite;white-space:nowrap}
+.ticker-item{color:#fff;font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.ticker-sep{color:rgba(255,255,255,0.6);font-size:9px}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* SECTION BASE */
+/* ===== SECTIONS ===== */
 section{padding:100px 4%}
-.eyebrow{
-  font-size:11px;font-weight:600;letter-spacing:3px;
-  text-transform:uppercase;color:var(--saffron);
-  margin-bottom:12px;display:flex;align-items:center;gap:10px;
-}
-.eyebrow::before{content:'';width:20px;height:1.5px;background:var(--saffron)}
-.sh{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(30px,4vw,52px);
-  font-weight:700;line-height:1.1;margin-bottom:14px;color:#fff;
-}
-.sp{font-size:15px;color:rgba(255,255,255,0.5);max-width:500px;line-height:1.75}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--saffron);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:22px;height:2px;background:var(--saffron);border-radius:1px}
+.sh{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,54px);font-weight:700;line-height:1.1;margin-bottom:14px;color:#fff}
+.sp{font-size:15px;color:rgba(255,255,255,0.5);max-width:520px;line-height:1.8}
 .sec-head{margin-bottom:60px}
 
-/* INDIA MAP SECTION */
+/* ===== INDIA MAP — REAL SVG ===== */
 #india-map{background:var(--navy);padding:100px 4%}
-.map-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
-.map-svg-wrap{position:relative}
-.india-map{width:100%;max-width:440px}
-.state-path{
-  fill:rgba(212,175,55,0.12);
-  stroke:rgba(212,175,55,0.25);
-  stroke-width:0.8;
-  cursor:pointer;
-  transition:all 0.3s;
-}
-.state-path:hover{fill:rgba(255,107,0,0.35);stroke:var(--saffron)}
-.state-path.active{fill:rgba(255,107,0,0.5);stroke:var(--saffron);stroke-width:1.5}
-.map-info{padding:20px 0}
+.map-wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
+.map-svg-wrap{display:flex;justify-content:center}
+.india-map-svg{width:100%;max-width:460px;filter:drop-shadow(0 8px 32px rgba(255,107,0,0.15))}
+
+/* Real India map paths */
+.st{fill:rgba(212,175,55,0.1);stroke:rgba(212,175,55,0.3);stroke-width:0.7;cursor:pointer;transition:all 0.3s}
+.st:hover{fill:rgba(255,107,0,0.4);stroke:var(--saffron);stroke-width:1.2}
+.st.active{fill:rgba(255,107,0,0.55);stroke:var(--saffron);stroke-width:1.5}
+
+.map-info{position:sticky;top:80px}
 .state-card{
-  background:var(--glass);border:1px solid var(--glassborder);
-  border-radius:20px;padding:28px;margin-bottom:24px;
-  transition:all 0.4s;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  border-radius:22px;padding:28px;margin-bottom:20px;
 }
-.sc-flag{font-size:32px;margin-bottom:12px}
+.sc-flag{font-size:34px;margin-bottom:12px}
 .sc-name{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px}
 .sc-sub{font-size:13px;color:var(--gold);margin-bottom:14px;letter-spacing:0.5px}
-.sc-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.sc-desc{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:18px}
 .sc-tags{display:flex;gap:8px;flex-wrap:wrap}
-.sc-tag{
-  background:rgba(255,107,0,0.15);border:1px solid rgba(255,107,0,0.25);
-  color:var(--saffron2);font-size:11px;padding:4px 12px;border-radius:15px;font-weight:500;
-}
-.state-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-height:320px;overflow-y:auto}
+.sc-tag{background:rgba(255,107,0,0.15);border:1px solid rgba(255,107,0,0.28);color:var(--saffron2);font-size:11px;padding:5px 13px;border-radius:15px;font-weight:600}
+.state-list{display:grid;grid-template-columns:1fr 1fr;gap:7px;max-height:340px;overflow-y:auto;padding-right:4px}
 .state-list::-webkit-scrollbar{width:2px}
-.state-list::-webkit-scrollbar-thumb{background:var(--saffron)}
+.state-list::-webkit-scrollbar-thumb{background:var(--saffron);border-radius:2px}
 .sl-item{
   background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);
   border-radius:10px;padding:10px 12px;cursor:pointer;
   transition:all 0.25s;display:flex;align-items:center;gap:8px;
 }
-.sl-item:hover,.sl-item.sel{
-  background:rgba(255,107,0,0.12);border-color:rgba(255,107,0,0.3);
-}
-.sl-emoji{font-size:16px}
+.sl-item:hover,.sl-item.sel{background:rgba(255,107,0,0.14);border-color:rgba(255,107,0,0.35)}
+.sl-emoji{font-size:15px}
 .sl-name{font-size:12px;color:var(--text);font-weight:500}
 
-/* STATES GRID */
+/* ===== DESTINATIONS GRID ===== */
 #states{background:var(--deep)}
-.states-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-.state-tile{
-  border-radius:18px;overflow:hidden;
-  position:relative;cursor:pointer;
-  aspect-ratio:3/4;
-  transition:transform 0.4s;
-}
+.states-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.state-tile{border-radius:18px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:3/4;transition:transform 0.4s}
 .state-tile:hover{transform:scale(1.03)}
 .state-tile:hover .tile-img{transform:scale(1.08)}
-.tile-img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform 0.5s ease;display:block;
-}
-.tile-bg{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:56px;
-}
-.tile-grad{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(6,13,31,0.95) 0%,rgba(6,13,31,0.3) 55%,transparent 80%);
-}
-.tile-price{
-  position:absolute;top:14px;right:14px;
-  background:rgba(255,107,0,0.9);
-  color:#fff;font-size:10px;font-weight:700;
-  padding:4px 10px;border-radius:12px;
-}
+.tile-img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;display:block}
+.tile-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,16,31,0.96) 0%,rgba(7,16,31,0.3) 55%,transparent 80%)}
+.tile-price{position:absolute;top:14px;right:14px;background:rgba(255,107,0,0.92);color:#fff;font-size:10.5px;font-weight:700;padding:5px 11px;border-radius:12px}
 .tile-body{position:absolute;bottom:0;left:0;right:0;padding:22px 18px}
-.tile-region{font-size:10px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.tile-region{font-size:10px;color:var(--gold);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:4px;font-weight:600}
 .tile-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff}
-.tile-tag{
-  display:inline-block;margin-top:6px;
-  background:rgba(255,255,255,0.1);
-  color:rgba(255,255,255,0.7);
-  font-size:10px;padding:3px 8px;border-radius:8px;
-}
+.tile-tag{display:inline-block;margin-top:6px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.75);font-size:10px;padding:3px 9px;border-radius:8px}
 .state-tile.featured{grid-column:span 2;aspect-ratio:16/9}
 .state-tile.featured .tile-name{font-size:28px}
 
-/* PACKAGES */
-#packages{background:#080D1A}
+/* ===== PACKAGES ===== */
+#packages{background:#060D1A}
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.pkg{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:22px;overflow:hidden;
-  transition:all 0.4s;
-}
-.pkg:hover{
-  transform:translateY(-10px);
-  border-color:rgba(212,175,55,0.3);
-  box-shadow:0 30px 60px rgba(0,0,0,0.4);
-}
+.pkg{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:22px;overflow:hidden;transition:all 0.4s}
+.pkg:hover{transform:translateY(-10px);border-color:rgba(212,175,55,0.35);box-shadow:0 30px 60px rgba(0,0,0,0.4)}
 .pkg-img{position:relative;height:200px;overflow:hidden}
 .pkg-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
 .pkg:hover .pkg-img img{transform:scale(1.08)}
-.pkg-badge{
-  position:absolute;top:14px;left:14px;
-  background:rgba(255,107,0,0.9);
-  color:#fff;font-size:10px;font-weight:700;
-  padding:4px 12px;border-radius:15px;
-  text-transform:uppercase;letter-spacing:0.5px;
-}
+.pkg-badge{position:absolute;top:14px;left:14px;background:rgba(255,107,0,0.92);color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:15px;text-transform:uppercase;letter-spacing:0.5px}
 .pkg-body{padding:24px}
-.pkg-dest{font-size:11px;color:var(--saffron2);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.pkg-dest{font-size:11px;color:var(--saffron2);font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px}
 .pkg-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:14px}
-.pkg-meta{display:flex;gap:14px;padding:12px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:16px}
-.pm{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.pkg-meta{display:flex;gap:14px;padding:12px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:16px;flex-wrap:wrap}
+.pm{font-size:12px;color:var(--muted)}
 .pkg-foot{display:flex;align-items:center;justify-content:space-between}
 .pkg-price{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--gold2)}
 .pkg-price small{font-size:12px;color:var(--muted);font-weight:400;font-family:'Inter',sans-serif}
 .pkg-btn{
-  background:linear-gradient(135deg,#060D1F,#0F2040);
-  border:1px solid rgba(212,175,55,0.3);
-  color:var(--gold);padding:9px 20px;border-radius:20px;
-  font-size:12px;font-weight:600;cursor:pointer;
-  font-family:'Inter',sans-serif;transition:all 0.3s;
+  background:linear-gradient(135deg,#071628,#102040);
+  border:1px solid rgba(212,175,55,0.35);color:var(--gold);
+  padding:9px 20px;border-radius:20px;font-size:12px;font-weight:700;
+  cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.3s;
 }
 .pkg-btn:hover{background:linear-gradient(135deg,var(--gold),var(--saffron2));color:#000;border-color:transparent}
 
-/* VIDEO SECTION */
+/* ===== VIDEO — FIXED ===== */
 #video-sec{
-  position:relative;padding:0;
-  height:70vh;min-height:500px;
-  display:flex;align-items:center;justify-content:center;
+  position:relative;padding:80px 4%;
+  background:linear-gradient(160deg,#07101F 0%,#1A0800 50%,#07101F 100%);
   overflow:hidden;
 }
-.video-bg{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,#0A0A0F 0%,#1A0A00 50%,#0A0A0F 100%);
+.video-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:300px;
+  background:radial-gradient(ellipse,rgba(255,107,0,0.12) 0%,transparent 70%);
+  pointer-events:none;
 }
-.video-pattern{
-  position:absolute;inset:0;
-  background-image:radial-gradient(circle at 20% 50%, rgba(255,107,0,0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(212,175,55,0.12) 0%, transparent 50%);
+.video-head{text-align:center;margin-bottom:40px}
+.video-head h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;margin-bottom:10px}
+.video-head p{font-size:15px;color:var(--muted)}
+.video-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.vtab{
+  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.7);padding:9px 22px;border-radius:25px;
+  font-size:13px;font-weight:600;cursor:pointer;transition:all 0.3s;
+  font-family:'Inter',sans-serif;
 }
+.vtab.on,.vtab:hover{background:var(--saffron);color:#fff;border-color:var(--saffron)}
 .video-frame{
   position:relative;z-index:2;
-  width:min(800px,90%);
-  aspect-ratio:16/9;
-  border-radius:20px;overflow:hidden;
+  max-width:860px;margin:0 auto;
+  aspect-ratio:16/9;border-radius:20px;overflow:hidden;
   border:1px solid rgba(255,255,255,0.1);
-  box-shadow:0 0 80px rgba(255,107,0,0.2);
+  box-shadow:0 8px 60px rgba(255,107,0,0.18),0 0 0 1px rgba(255,107,0,0.08);
 }
-.video-frame iframe{width:100%;height:100%;border:none}
-.video-overlay-text{
-  position:absolute;top:-70px;left:0;right:0;
-  text-align:center;z-index:2;
-}
-.video-overlay-text h2{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(28px,4vw,48px);
-  font-weight:700;color:#fff;margin-bottom:10px;
-}
-.video-overlay-text p{font-size:15px;color:var(--muted)}
+.video-frame iframe{width:100%;height:100%;border:none;display:block}
 
-/* EXPERIENCES */
+/* ===== WHY US ===== */
 #exp{background:var(--cream)}
-#exp .sh{color:#0A0A1A}
 #exp .eyebrow{color:#C0392B}
 #exp .eyebrow::before{background:#C0392B}
-#exp .sp{color:#555}
 .exp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 .exp-card{
-  background:#fff;border-radius:20px;
-  padding:28px 20px;text-align:center;
-  border:1px solid rgba(0,0,0,0.07);
-  transition:all 0.35s;position:relative;overflow:hidden;
+  background:#fff;border-radius:22px;padding:30px 20px;text-align:center;
+  border:1px solid rgba(0,0,0,0.07);transition:all 0.35s;
+  position:relative;overflow:hidden;
 }
 .exp-card::after{
   content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
@@ -385,202 +315,115 @@ section{padding:100px 4%}
 }
 .exp-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,0.1)}
 .exp-card:hover::after{transform:scaleX(1)}
-.exp-icon{font-size:36px;margin-bottom:16px;display:block}
+.exp-icon{font-size:38px;margin-bottom:16px;display:block}
 .exp-title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#0A0A1A;margin-bottom:8px}
-.exp-desc{font-size:12px;color:#666;line-height:1.65}
+.exp-desc{font-size:12.5px;color:#666;line-height:1.65}
 
-/* GALLERY MASONRY */
+/* ===== GALLERY ===== */
 #gallery{background:#060D1F}
-.gal-grid{
-  columns:4;gap:12px;
-}
-.gal-item{
-  break-inside:avoid;margin-bottom:12px;
-  border-radius:14px;overflow:hidden;
-  position:relative;cursor:pointer;
-}
-.gal-item img{
-  width:100%;display:block;
-  transition:transform 0.5s ease;
-}
+.gal-grid{columns:4;gap:12px}
+.gal-item{break-inside:avoid;margin-bottom:12px;border-radius:14px;overflow:hidden;position:relative;cursor:pointer}
+.gal-item img{width:100%;display:block;transition:transform 0.5s ease}
 .gal-item:hover img{transform:scale(1.07)}
-.gal-item .gal-hover{
-  position:absolute;inset:0;
-  background:rgba(255,107,0,0.0);
-  transition:background 0.3s;
-  display:flex;align-items:center;justify-content:center;
-}
-.gal-item:hover .gal-hover{background:rgba(255,107,0,0.2)}
+.gal-hover{position:absolute;inset:0;background:rgba(255,107,0,0);transition:background 0.3s;display:flex;align-items:center;justify-content:center}
+.gal-item:hover .gal-hover{background:rgba(255,107,0,0.18)}
 
-/* TESTIMONIALS */
+/* ===== TESTIMONIALS ===== */
 #testi{background:var(--navy)}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .testi-card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:20px;padding:32px;
-  transition:all 0.35s;position:relative;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;padding:32px;transition:all 0.35s;position:relative;
 }
-.testi-card:hover{border-color:rgba(212,175,55,0.25);transform:translateY(-5px)}
-.testi-q{
-  position:absolute;top:18px;right:22px;
-  font-family:'Playfair Display',serif;
-  font-size:72px;color:rgba(212,175,55,0.08);
-  line-height:1;font-weight:900;
-}
-.stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.testi-card:hover{border-color:rgba(212,175,55,0.28);transform:translateY(-5px)}
+.testi-q{position:absolute;top:16px;right:22px;font-family:'Playfair Display',serif;font-size:76px;color:rgba(212,175,55,0.08);line-height:1;font-weight:900}
+.stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px}
 .testi-text{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.8;font-style:italic;margin-bottom:22px}
 .testi-author{display:flex;align-items:center;gap:12px}
-.ta-av{
-  width:44px;height:44px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:15px;color:#fff;flex-shrink:0;
-  border:2px solid rgba(212,175,55,0.3);
-}
+.ta-av{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#fff;flex-shrink:0;border:2px solid rgba(212,175,55,0.35)}
 .ta-name{font-weight:600;font-size:14px;color:#fff}
 .ta-loc{font-size:12px;color:var(--gold);margin-top:2px}
 
-/* LANGUAGE BANNER */
-#langs{
-  background:linear-gradient(135deg,var(--saffron),#c45200);
-  padding:60px 4%;text-align:center;
-}
-#langs h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);color:#fff;font-weight:700;margin-bottom:12px}
-#langs p{color:rgba(255,255,255,0.8);font-size:15px;margin-bottom:36px}
+/* ===== LANGUAGE BANNER ===== */
+#langs{background:linear-gradient(135deg,var(--saffron) 0%,#b34b00 100%);padding:64px 4%;text-align:center}
+#langs h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);color:#fff;font-weight:700;margin-bottom:12px}
+#langs p{color:rgba(255,255,255,0.85);font-size:15px;margin-bottom:36px}
 .lang-grid{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .lang-pill{
-  background:rgba(255,255,255,0.2);
-  border:1.5px solid rgba(255,255,255,0.4);
+  background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.45);
   color:#fff;padding:10px 22px;border-radius:25px;
-  font-size:13px;font-weight:600;cursor:pointer;
-  transition:all 0.3s;
+  font-size:13.5px;font-weight:600;cursor:pointer;transition:all 0.3s;
 }
-.lang-pill:hover,.lang-pill.active{background:#fff;color:var(--saffron)}
+.lang-pill:hover,.lang-pill.active{background:#fff;color:var(--saffron);border-color:#fff}
 
-/* CONTACT */
+/* ===== CONTACT ===== */
 #contact{background:var(--cream)}
 #contact .sh{color:#0A0A1A}
 #contact .eyebrow{color:#C0392B}
 #contact .eyebrow::before{background:#C0392B}
 .contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start}
-.ci-block{display:flex;flex-direction:column;gap:16px}
+.ci-block{display:flex;flex-direction:column;gap:14px}
 .ci{
   background:#fff;border-radius:16px;padding:18px 20px;
   display:flex;align-items:center;gap:16px;
-  border:1px solid rgba(0,0,0,0.07);
-  box-shadow:0 2px 12px rgba(0,0,0,0.05);
+  border:1px solid rgba(0,0,0,0.07);box-shadow:0 2px 12px rgba(0,0,0,0.05);
   transition:all 0.3s;
 }
-.ci:hover{transform:translateX(6px);border-color:rgba(255,107,0,0.2)}
-.ci-icon{
-  width:46px;height:46px;border-radius:13px;flex-shrink:0;
-  background:linear-gradient(135deg,#C0392B,var(--saffron));
-  display:flex;align-items:center;justify-content:center;font-size:20px;
-}
+.ci:hover{transform:translateX(6px);border-color:rgba(255,107,0,0.25)}
+.ci-icon{width:46px;height:46px;border-radius:13px;flex-shrink:0;background:linear-gradient(135deg,#C0392B,var(--saffron));display:flex;align-items:center;justify-content:center;font-size:20px}
 .ci-t{font-size:14px;color:#333}
 .ci-t strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:0.8px;color:#C0392B;margin-bottom:2px;font-weight:700}
-.cform{
-  background:#fff;border-radius:24px;padding:40px;
-  box-shadow:0 12px 48px rgba(0,0,0,0.1);
-  border:1px solid rgba(0,0,0,0.06);
-}
+.cform{background:#fff;border-radius:24px;padding:40px;box-shadow:0 12px 48px rgba(0,0,0,0.1);border:1px solid rgba(0,0,0,0.06)}
 .cf-title{font-family:'Playfair Display',serif;font-size:28px;color:#0A0A1A;font-weight:700;margin-bottom:24px}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-.fg label{font-size:10px;font-weight:700;color:#0A0A1A;text-transform:uppercase;letter-spacing:0.8px}
-.fg input,.fg select,.fg textarea{
-  border:1.5px solid #E5E7EB;border-radius:12px;
-  padding:11px 15px;font-size:14px;
-  font-family:'Inter',sans-serif;outline:none;
-  transition:border-color 0.3s;background:#FAFAFA;color:#111;
-}
+.fg label{font-size:10.5px;font-weight:700;color:#0A0A1A;text-transform:uppercase;letter-spacing:0.8px}
+.fg input,.fg select,.fg textarea{border:1.5px solid #E5E7EB;border-radius:12px;padding:11px 15px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.3s;background:#FAFAFA;color:#111}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:#C0392B;background:#fff}
 .fg textarea{resize:vertical;min-height:100px}
-.fsub{
-  background:linear-gradient(135deg,#C0392B,var(--saffron));
-  color:#fff;border:none;width:100%;padding:15px;
-  border-radius:14px;font-size:14px;font-weight:700;
-  cursor:pointer;font-family:'Inter',sans-serif;
-  transition:all 0.3s;box-shadow:0 6px 24px rgba(192,57,43,0.3);
-}
-.fsub:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(192,57,43,0.4)}
+.fsub{background:linear-gradient(135deg,#C0392B,var(--saffron));color:#fff;border:none;width:100%;padding:15px;border-radius:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.3s;box-shadow:0 6px 24px rgba(192,57,43,0.3)}
+.fsub:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(192,57,43,0.45)}
 
-/* FOOTER */
-footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:72px 4% 32px}
-.fg-grid{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+/* ===== FOOTER ===== */
+footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.12);padding:72px 4% 32px}
+.fg-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
 .fl-logo{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.fl-desc{color:rgba(255,255,255,0.4);font-size:13px;line-height:1.75;max-width:260px}
-.fl-cert{margin-top:14px;color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:1px}
+.fl-logo-img{height:50px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(212,175,55,0.25))}
+.fl-desc{color:rgba(255,255,255,0.38);font-size:13px;line-height:1.75;max-width:260px}
+.fl-cert{margin-top:14px;color:rgba(255,255,255,0.22);font-size:10px;letter-spacing:1.5px}
 .fl-title{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .fl-links{list-style:none;display:flex;flex-direction:column;gap:11px}
-.fl-links a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:13px;transition:color 0.3s}
+.fl-links a{color:rgba(255,255,255,0.42);text-decoration:none;font-size:13px;transition:color 0.3s}
 .fl-links a:hover{color:var(--gold)}
-.fbot{border-top:1px solid rgba(255,255,255,0.06);padding-top:26px;display:flex;justify-content:space-between;align-items:center}
-.fcopy{color:rgba(255,255,255,0.28);font-size:12px}
+.fbot{border-top:1px solid rgba(255,255,255,0.06);padding-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.fcopy{color:rgba(255,255,255,0.26);font-size:12px}
 .fsocial{display:flex;gap:10px}
-.fsoc{
-  width:38px;height:38px;border-radius:10px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  display:flex;align-items:center;justify-content:center;
-  color:rgba(255,255,255,0.45);text-decoration:none;font-size:12px;font-weight:700;
-  transition:all 0.3s;
-}
+.fsoc{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.42);text-decoration:none;font-size:12px;font-weight:700;transition:all 0.3s}
 .fsoc:hover{background:var(--saffron);color:#fff;border-color:var(--saffron)}
 
-/* CHAT */
+/* ===== CHATBOT ===== */
 .chat-fab{position:fixed;bottom:28px;right:28px;z-index:9999}
-.chat-toggle{
-  width:62px;height:62px;border-radius:50%;
-  background:linear-gradient(135deg,#C0392B,var(--saffron));
-  border:none;color:#fff;font-size:26px;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 28px rgba(192,57,43,0.5);
-  animation:fp 3s ease infinite;transition:transform 0.3s;
-}
+.chat-toggle{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#C0392B,var(--saffron));border:none;color:#fff;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(192,57,43,0.5);animation:fp 3s ease infinite;transition:transform 0.3s}
 .chat-toggle:hover{transform:scale(1.1)}
-@keyframes fp{
-  0%,100%{box-shadow:0 8px 28px rgba(192,57,43,0.5),0 0 0 0 rgba(192,57,43,0.3)}
-  50%{box-shadow:0 8px 28px rgba(192,57,43,0.5),0 0 0 14px rgba(192,57,43,0)}
-}
-.chat-win{
-  position:fixed;bottom:106px;right:28px;
-  width:350px;height:520px;
-  background:#fff;border-radius:22px;
-  box-shadow:0 24px 80px rgba(0,0,0,0.3);
-  z-index:9998;display:none;flex-direction:column;overflow:hidden;
-}
+@keyframes fp{0%,100%{box-shadow:0 8px 28px rgba(192,57,43,0.5),0 0 0 0 rgba(192,57,43,0.3)}50%{box-shadow:0 8px 28px rgba(192,57,43,0.5),0 0 0 14px rgba(192,57,43,0)}}
+.chat-win{position:fixed;bottom:108px;right:28px;width:355px;height:520px;background:#fff;border-radius:22px;box-shadow:0 24px 80px rgba(0,0,0,0.3);z-index:9998;display:none;flex-direction:column;overflow:hidden}
 .chat-win.open{display:flex}
-.chead{
-  background:linear-gradient(135deg,#0A0A1A,#1A2C5E);
-  padding:18px 20px;display:flex;align-items:center;gap:12px;
-}
-.cav{
-  width:42px;height:42px;border-radius:50%;
-  background:rgba(255,255,255,0.15);
-  display:flex;align-items:center;justify-content:center;font-size:20px;
-  border:2px solid rgba(255,255,255,0.2);
-}
-.cname{color:#fff;font-weight:600;font-size:15px}
-.cstatus{color:rgba(255,255,255,0.6);font-size:11px;margin-top:1px}
-.cclose{
-  color:rgba(255,255,255,0.6);background:none;border:none;font-size:20px;cursor:pointer;margin-left:auto;
-}
+.chead{background:linear-gradient(135deg,#0A0A1A,#1A2C5E);padding:18px 20px;display:flex;align-items:center;gap:12px}
+.cav{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:22px;border:2px solid rgba(255,255,255,0.2)}
+.cname{color:#fff;font-weight:700;font-size:15px}
+.cstatus{color:rgba(255,255,255,0.65);font-size:11px;margin-top:1px}
+.cclose{color:rgba(255,255,255,0.65);background:none;border:none;font-size:22px;cursor:pointer;margin-left:auto;padding:4px}
 .cmsgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#F5F7FA}
-.cmsg{max-width:82%;padding:10px 13px;border-radius:14px;font-size:13px;line-height:1.55}
+.cmsg{max-width:84%;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.55;white-space:pre-line}
 .cmsg.bot{background:#fff;color:#333;border:1px solid #E8EDF2;align-self:flex-start;border-radius:4px 14px 14px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
 .cmsg.user{background:linear-gradient(135deg,#0A0A1A,#1A2C5E);color:#fff;align-self:flex-end;border-radius:14px 14px 4px 14px}
 .csugs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.csug{background:#fff;border:1px solid #1A2C5E;color:#1A2C5E;padding:6px 11px;border-radius:14px;font-size:11px;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;font-weight:500}
+.csug{background:#fff;border:1px solid #1A2C5E;color:#1A2C5E;padding:6px 12px;border-radius:14px;font-size:11px;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;font-weight:600}
 .csug:hover{background:#1A2C5E;color:#fff}
 .cinput{padding:13px 14px;border-top:1px solid #EEF0F3;display:flex;gap:8px;background:#fff}
-.cinp{flex:1;border:1.5px solid #E5E7EB;border-radius:24px;padding:9px 14px;font-size:13px;outline:none;font-family:'Inter',sans-serif;transition:border-color 0.3s}
+.cinp{flex:1;border:1.5px solid #E5E7EB;border-radius:24px;padding:9px 15px;font-size:13px;outline:none;font-family:'Inter',sans-serif;transition:border-color 0.3s}
 .cinp:focus{border-color:#C0392B}
-.csend{
-  background:linear-gradient(135deg,#C0392B,var(--saffron));
-  color:#fff;border:none;width:38px;height:38px;border-radius:50%;
-  cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s;
-}
+.csend{background:linear-gradient(135deg,#C0392B,var(--saffron));color:#fff;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s}
 .csend:hover{transform:scale(1.1)}
 .typing{display:flex;gap:4px;align-items:center;padding:12px 16px;background:#fff;border-radius:4px 14px 14px 14px;align-self:flex-start;border:1px solid #E8EDF2}
 .typing span{width:7px;height:7px;background:#ccc;border-radius:50%;animation:bounce 1.4s infinite}
@@ -588,11 +431,12 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
 .typing span:nth-child(3){animation-delay:.4s}
 @keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-8px)}}
 
-/* ANIMATIONS */
-.fade-in{opacity:0;transform:translateY(32px);transition:all 0.7s ease}
+/* ===== ANIMATIONS ===== */
+.fade-in{opacity:0;transform:translateY(30px);transition:all 0.7s ease}
 .fade-in.vis{opacity:1;transform:translateY(0)}
 
-@media(max-width:1000px){
+/* ===== RESPONSIVE ===== */
+@media(max-width:1100px){
   .states-grid{grid-template-columns:repeat(2,1fr)}
   .state-tile.featured{grid-column:span 2}
   .pkg-grid{grid-template-columns:1fr 1fr}
@@ -601,27 +445,44 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
   .gal-grid{columns:2}
   .fg-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:700px){
-  .nav-links,.nav-actions .lang-sel{display:none}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  #nav{padding:0 4%}
+  .main-logo{height:44px}
+  .hero-h1{font-size:clamp(38px,10vw,60px)}
   .states-grid{grid-template-columns:1fr 1fr}
   .state-tile.featured{grid-column:span 2}
   .pkg-grid,.testi-grid,.exp-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .frow{grid-template-columns:1fr}
+  .contact-grid,.frow{grid-template-columns:1fr}
+  .fg-grid{grid-template-columns:1fr}
   .gal-grid{columns:1}
   .hero-stats{flex-wrap:wrap}
   .stat{min-width:50%}
   .map-wrap{grid-template-columns:1fr}
-  .state-list{grid-template-columns:1fr}
+  .state-list{grid-template-columns:1fr 1fr}
+  section{padding:72px 4%}
+  .chat-win{width:calc(100vw - 32px);right:16px;bottom:96px}
+  .lang-sel{font-size:11px;padding:6px 26px 6px 10px}
+  .video-tabs{gap:8px}
+  .vtab{padding:7px 16px;font-size:12px}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column}
+  .btn-primary,.btn-outline{text-align:center;width:100%}
+  .stat{min-width:50%}
+  .states-grid{grid-template-columns:1fr 1fr}
+  .state-tile.featured{grid-column:span 2;aspect-ratio:4/3}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="nav">
- <div class="logo">
-  <img src="k_logo.png" class="main-logo" alt="Kindora Logo">
-</div>
+  <div class="logo">
+    <img src="k_logo.png" class="main-logo" alt="Kindora Holidays" onerror="this.style.display='none'">
+  </div>
   <ul class="nav-links">
     <li><a href="#india-map">Explore India</a></li>
     <li><a href="#states">Destinations</a></li>
@@ -632,44 +493,41 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
   <div class="nav-actions">
     <select class="lang-sel" id="langSwitch" onchange="switchLang(this.value)">
       <option value="en">🌐 English</option>
-      <option value="hi">हिन्दी</option>
-      <option value="bn">বাংলা</option>
-      <option value="ta">தமிழ்</option>
-      <option value="te">తెలుగు</option>
+      <option value="hi">🇮🇳 हिन्दी</option>
+      <option value="bn">🇮🇳 বাংলা</option>
+      <option value="ta">🇮🇳 தமிழ்</option>
+      <option value="te">🇮🇳 తెలుగు</option>
+      <option value="mr">🇮🇳 मराठी</option>
+      <option value="gu">🇮🇳 ગુજરાતી</option>
+      <option value="kn">🇮🇳 ಕನ್ನಡ</option>
     </select>
     <button class="cta-btn" onclick="openChat()">✈ Book Now</button>
+    <div class="hamburger" onclick="toggleMenu()" id="ham">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#india-map" onclick="toggleMenu()">Explore India</a></li>
+    <li><a href="#states" onclick="toggleMenu()">Destinations</a></li>
+    <li><a href="#packages" onclick="toggleMenu()">Packages</a></li>
+    <li><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
+    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+  </ul>
+</div>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-slides" id="heroSlides">
-    <div class="slide active">
-      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1800&q=85" alt="Rajasthan">
-      <div class="slide-overlay"></div>
-    </div>
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1800&q=85" alt="Kerala">
-      <div class="slide-overlay"></div>
-    </div>
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1800&q=85" alt="Kashmir">
-      <div class="slide-overlay"></div>
-    </div>
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1800&q=85" alt="Odisha">
-      <div class="slide-overlay"></div>
-    </div>
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1800&q=85" alt="Sri Lanka">
-      <div class="slide-overlay"></div>
-    </div>
+    <div class="slide active"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1800&q=85" alt="Rajasthan"><div class="slide-overlay"></div></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1800&q=85" alt="Kerala"><div class="slide-overlay"></div></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1800&q=85" alt="Kashmir"><div class="slide-overlay"></div></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1800&q=85" alt="Odisha"><div class="slide-overlay"></div></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=1800&q=85" alt="Andaman"><div class="slide-overlay"></div></div>
   </div>
   <div class="hero-body">
-    <div class="hero-badge">
-      <div class="badge-dot"></div>
-      <span id="hb-text">Trusted Travel Partner Since 2010</span>
-    </div>
+    <div class="hero-badge"><div class="badge-dot"></div><span id="hb-text">Trusted Travel Partner Since 2010</span></div>
     <h1 class="hero-h1">
       <span class="h1-line1" id="h1l1">Discover Sacred</span>
       <span class="h1-line2" id="h1l2">India & The World</span>
@@ -716,7 +574,7 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
   </div>
 </div>
 
-<!-- INDIA INTERACTIVE MAP -->
+<!-- INDIA MAP — REAL SVG -->
 <section id="india-map">
   <div class="sec-head fade-in">
     <div class="eyebrow">Interactive India</div>
@@ -725,59 +583,67 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
   </div>
   <div class="map-wrap">
     <div class="map-svg-wrap">
-      <svg class="india-map" viewBox="0 0 400 460" fill="none" xmlns="http://www.w3.org/2000/svg" id="indiaSvg">
-        <!-- Simplified India outline paths by region -->
-        <!-- J&K / Ladakh -->
-        <path class="state-path" id="sp-jk" d="M120,20 L180,18 L200,35 L195,55 L175,65 L155,70 L130,65 L110,50 Z" onclick="selectState('jk')"/>
-        <!-- Himachal -->
-        <path class="state-path" id="sp-hp" d="M155,70 L195,55 L205,70 L195,85 L175,88 L158,82 Z" onclick="selectState('hp')"/>
+      <!-- Realistic India SVG Map -->
+      <svg class="india-map-svg" viewBox="0 0 550 620" xmlns="http://www.w3.org/2000/svg">
+        <!-- Jammu & Kashmir / Ladakh -->
+        <path class="st" id="sp-jk" onclick="selectState('jk')" d="M95,15 L170,10 L230,18 L265,35 L270,60 L255,80 L230,90 L200,95 L175,100 L150,95 L120,85 L95,70 L80,50 Z"/>
+        <!-- Himachal Pradesh -->
+        <path class="st" id="sp-hp" onclick="selectState('hp')" d="M175,100 L230,90 L255,80 L265,100 L260,120 L240,130 L215,135 L192,128 L178,115 Z"/>
         <!-- Punjab -->
-        <path class="state-path" id="sp-pb" d="M118,62 L155,70 L158,82 L145,92 L120,90 L108,75 Z" onclick="selectState('pb')"/>
+        <path class="st" id="sp-pb" onclick="selectState('pb')" d="M120,85 L150,95 L175,100 L178,115 L168,130 L148,135 L125,128 L108,110 L105,90 Z"/>
         <!-- Haryana -->
-        <path class="state-path" id="sp-hr" d="M145,92 L175,88 L185,100 L175,115 L150,115 L138,103 Z" onclick="selectState('hr')"/>
-        <!-- Uttarakhand -->
-        <path class="state-path" id="sp-uk" d="M195,85 L220,80 L232,95 L225,112 L205,115 L185,100 L195,85 Z" onclick="selectState('uk')"/>
+        <path class="st" id="sp-hr" onclick="selectState('hr')" d="M148,135 L192,128 L215,135 L220,155 L205,168 L178,172 L155,165 L142,150 Z"/>
         <!-- Delhi -->
-        <ellipse class="state-path" id="sp-dl" cx="162" cy="108" rx="10" ry="9" onclick="selectState('dl')"/>
-        <!-- UP -->
-        <path class="state-path" id="sp-up" d="M150,115 L205,115 L230,115 L245,132 L235,158 L205,170 L170,172 L150,160 L138,140 L142,125 Z" onclick="selectState('up')"/>
+        <ellipse class="st" id="sp-dl" onclick="selectState('dl')" cx="190" cy="162" rx="15" ry="13"/>
+        <!-- Uttarakhand -->
+        <path class="st" id="sp-uk" onclick="selectState('uk')" d="M215,135 L260,120 L285,128 L295,148 L282,168 L258,175 L232,170 L220,155 Z"/>
+        <!-- Uttar Pradesh -->
+        <path class="st" id="sp-up" onclick="selectState('up')" d="M155,165 L205,168 L258,175 L295,148 L320,165 L335,195 L318,228 L285,240 L248,245 L215,240 L185,232 L162,215 L150,195 Z"/>
         <!-- Rajasthan -->
-        <path class="state-path" id="sp-rj" d="M85,95 L138,103 L142,125 L138,140 L120,162 L95,170 L70,158 L58,130 L65,105 Z" onclick="selectState('rj')"/>
+        <path class="st" id="sp-rj" onclick="selectState('rj')" d="M70,115 L108,110 L125,128 L142,150 L150,195 L138,228 L115,250 L85,262 L58,248 L40,220 L35,185 L45,148 Z"/>
         <!-- Gujarat -->
-        <path class="state-path" id="sp-gj" d="M58,130 L70,158 L65,180 L50,200 L35,195 L28,170 L38,148 Z" onclick="selectState('gj')"/>
+        <path class="st" id="sp-gj" onclick="selectState('gj')" d="M40,220 L58,248 L55,278 L48,298 L30,312 L15,308 L8,285 L12,255 L25,235 Z M48,298 L62,318 L55,335 L45,330 L38,315 Z"/>
         <!-- Bihar -->
-        <path class="state-path" id="sp-br" d="M245,132 L278,128 L288,145 L278,162 L250,165 L235,158 Z" onclick="selectState('br')"/>
+        <path class="st" id="sp-br" onclick="selectState('br')" d="M318,228 L355,222 L378,238 L375,265 L352,278 L322,272 L305,255 L310,235 Z"/>
         <!-- Jharkhand -->
-        <path class="state-path" id="sp-jh" d="M250,165 L278,162 L292,178 L282,198 L258,200 L242,185 Z" onclick="selectState('jh')"/>
+        <path class="st" id="sp-jh" onclick="selectState('jh')" d="M322,272 L352,278 L378,268 L390,290 L378,318 L355,328 L328,320 L312,300 Z"/>
         <!-- West Bengal -->
-        <path class="state-path" id="sp-wb" d="M288,145 L312,140 L320,158 L315,178 L295,192 L282,198 L292,178 L278,162 Z" onclick="selectState('wb')"/>
+        <path class="st" id="sp-wb" onclick="selectState('wb')" d="M375,238 L408,228 L428,248 L425,278 L410,305 L390,315 L378,318 L390,290 L378,268 L378,238 Z"/>
         <!-- Odisha -->
-        <path class="state-path" id="sp-od" d="M258,200 L282,198 L295,192 L308,210 L302,235 L278,240 L255,225 L248,210 Z" onclick="selectState('od')"/>
-        <!-- MP -->
-        <path class="state-path" id="sp-mp" d="M105,170 L170,172 L205,170 L215,190 L200,212 L165,218 L130,215 L105,198 L95,185 Z" onclick="selectState('mp')"/>
+        <path class="st" id="sp-od" onclick="selectState('od')" d="M328,320 L355,328 L378,318 L390,315 L405,338 L400,368 L375,382 L348,375 L328,355 L318,335 Z"/>
+        <!-- Madhya Pradesh -->
+        <path class="st" id="sp-mp" onclick="selectState('mp')" d="M115,250 L138,228 L185,232 L215,240 L248,245 L268,262 L272,292 L248,312 L218,322 L185,318 L155,310 L130,295 L108,272 Z"/>
         <!-- Chhattisgarh -->
-        <path class="state-path" id="sp-cg" d="M215,190 L248,188 L258,200 L248,210 L255,225 L235,235 L215,225 L202,210 Z" onclick="selectState('cg')"/>
+        <path class="st" id="sp-cg" onclick="selectState('cg')" d="M268,262 L305,255 L322,272 L312,300 L328,320 L318,335 L295,345 L270,335 L258,315 L255,288 Z"/>
         <!-- Maharashtra -->
-        <path class="state-path" id="sp-mh" d="M85,200 L130,215 L165,218 L200,212 L202,210 L215,225 L208,255 L185,268 L155,270 L125,260 L95,245 L75,225 Z" onclick="selectState('mh')"/>
+        <path class="st" id="sp-mh" onclick="selectState('mh')" d="M85,262 L115,250 L130,295 L155,310 L185,318 L218,322 L248,312 L258,342 L245,378 L222,398 L192,408 L162,402 L130,388 L105,368 L82,345 L72,315 Z"/>
         <!-- Goa -->
-        <ellipse class="state-path" id="sp-ga" cx="110" cy="282" rx="12" ry="10" onclick="selectState('ga')"/>
+        <ellipse class="st" id="sp-ga" onclick="selectState('ga')" cx="128" cy="418" rx="16" ry="13"/>
         <!-- Karnataka -->
-        <path class="state-path" id="sp-ka" d="M95,270 L155,270 L185,268 L190,290 L178,315 L155,322 L128,315 L108,298 L95,280 Z" onclick="selectState('ka')"/>
+        <path class="st" id="sp-ka" onclick="selectState('ka')" d="M105,368 L130,388 L162,402 L192,408 L222,398 L238,425 L230,462 L208,482 L182,490 L155,482 L128,465 L108,440 L98,415 Z"/>
         <!-- Telangana -->
-        <path class="state-path" id="sp-tg" d="M185,268 L220,260 L235,275 L228,298 L205,305 L185,295 L190,290 Z" onclick="selectState('tg')"/>
-        <!-- Andhra -->
-        <path class="state-path" id="sp-ap" d="M208,255 L235,235 L255,245 L262,268 L245,292 L228,298 L235,275 L220,260 L208,255 Z" onclick="selectState('ap')"/>
+        <path class="st" id="sp-tg" onclick="selectState('tg')" d="M258,342 L295,345 L318,358 L312,392 L285,408 L258,398 L245,378 Z"/>
+        <!-- Andhra Pradesh -->
+        <path class="st" id="sp-ap" onclick="selectState('ap')" d="M270,335 L318,335 L328,355 L348,375 L345,408 L325,432 L298,445 L272,435 L250,415 L255,388 L258,398 L285,408 L312,392 L318,358 L295,345 Z"/>
         <!-- Tamil Nadu -->
-        <path class="state-path" id="sp-tn" d="M128,315 L155,322 L178,315 L185,295 L205,305 L210,328 L195,355 L168,368 L145,358 L128,338 Z" onclick="selectState('tn')"/>
+        <path class="st" id="sp-tn" onclick="selectState('tn')" d="M155,482 L182,490 L208,482 L230,462 L250,475 L262,505 L255,538 L232,558 L205,568 L178,555 L158,530 L150,505 Z"/>
         <!-- Kerala -->
-        <path class="state-path" id="sp-kl" d="M108,298 L128,315 L128,338 L118,358 L100,352 L90,332 L98,312 Z" onclick="selectState('kl')"/>
-        <!-- Northeast block -->
-        <path class="state-path" id="sp-as" d="M320,158 L350,148 L362,165 L348,182 L320,185 L315,178 L320,158 Z" onclick="selectState('as')"/>
-        <path class="state-path" id="sp-mg" d="M348,182 L368,178 L372,195 L355,202 L338,198 L320,185 L348,182 Z" onclick="selectState('mg')"/>
+        <path class="st" id="sp-kl" onclick="selectState('kl')" d="M128,465 L155,482 L150,505 L140,528 L122,542 L105,530 L98,508 L108,482 Z"/>
+        <!-- Assam -->
+        <path class="st" id="sp-as" onclick="selectState('as')" d="M428,195 L475,182 L505,195 L510,218 L492,238 L462,245 L435,238 L422,218 Z"/>
+        <!-- Meghalaya -->
+        <path class="st" id="sp-mg" onclick="selectState('mg')" d="M435,238 L462,245 L475,258 L465,275 L442,280 L420,270 L415,252 Z"/>
+        <!-- Nagaland / Manipur area -->
+        <path class="st" id="sp-ne" onclick="selectState('ne')" d="M492,238 L520,240 L535,260 L528,285 L508,295 L488,280 L475,258 L492,238 Z"/>
         <!-- Sikkim -->
-        <ellipse class="state-path" id="sp-sk" cx="318" cy="145" rx="10" ry="9" onclick="selectState('sk')"/>
-        <!-- Andaman simplified -->
-        <path class="state-path" id="sp-an" d="M360,300 L368,295 L372,310 L366,322 L358,318 L356,308 Z" onclick="selectState('an')"/>
+        <ellipse class="st" id="sp-sk" onclick="selectState('sk')" cx="420" cy="188" rx="14" ry="12"/>
+        <!-- Andaman (inset) -->
+        <g transform="translate(490,380)">
+          <path class="st" id="sp-an" onclick="selectState('an')" d="M5,0 L12,5 L14,18 L10,30 L5,35 L0,28 L2,15 Z"/>
+          <text x="16" y="20" font-size="9" fill="rgba(212,175,55,0.6)" font-family="Inter">A&amp;N</text>
+        </g>
+        <!-- Lakshadweep (inset) -->
+        <ellipse class="st" id="sp-ld" onclick="selectState('kl')" cx="60" cy="510" rx="7" ry="5"/>
       </svg>
     </div>
     <div class="map-info">
@@ -798,7 +664,7 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
   </div>
 </section>
 
-<!-- TOP DESTINATIONS GRID -->
+<!-- DESTINATIONS GRID -->
 <section id="states">
   <div class="sec-head fade-in">
     <div class="eyebrow">Top Destinations</div>
@@ -806,107 +672,16 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
     <p class="sp" id="dest-p">Handpicked destinations across every region — sacred, scenic, and spectacular.</p>
   </div>
   <div class="states-grid">
-    <div class="state-tile featured">
-      <img class="tile-img" src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=900&q=80" alt="Rajasthan">
-      <div class="tile-grad"></div>
-      <span class="tile-price">From ₹8,499</span>
-      <div class="tile-body">
-        <div class="tile-region">Rajasthan</div>
-        <div class="tile-name">Royal Jaipur & Jodhpur</div>
-        <span class="tile-tag">Heritage Palaces</span>
-      </div>
-    </div>
-    <div class="state-tile">
-      <img class="tile-img" src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=500&q=80" alt="Kashmir">
-      <div class="tile-grad"></div>
-      <span class="tile-price">From ₹12,999</span>
-      <div class="tile-body">
-        <div class="tile-region">J & K</div>
-        <div class="tile-name">Kashmir Valley</div>
-        <span class="tile-tag">Mountain Paradise</span>
-      </div>
-    </div>
-    <div class="state-tile">
-      <img class="tile-img" src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&q=80" alt="Kerala">
-      <div class="tile-grad"></div>
-      <span class="tile-price">From ₹7,999</span>
-      <div class="tile-body">
-        <div class="tile-region">Kerala</div>
-        <div class="tile-name">Backwaters & Hills</div>
-        <span class="tile-tag">God's Own Country</span>
-      </div>
-    </div>
-    <div class="state-tile">
-      <div class="tile-bg" style="background:linear-gradient(135deg,#1565C0,#0D47A1)">🛕</div>
-      <img class="tile-img" src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&q=80" alt="Puri">
-      <div class="tile-grad"></div>
-      <span class="tile-price">From ₹4,999</span>
-      <div class="tile-body">
-        <div class="tile-region">Odisha</div>
-        <div class="tile-name">Puri Jagannath</div>
-        <span class="tile-tag">Sacred Pilgrimage</span>
-      </div>
-    </div>
-    <div class="state-tile">
-      <img class="tile-img" src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=500&q=80" alt="Goa">
-      <div class="tile-grad"></div>
-      <span class="tile-price">From ₹6,499</span>
-      <div class="tile-body">
-        <div class="tile-region">Goa</div>
-        <div class="tile-name">Beaches & Vibes</div>
-        <span class="tile-tag">Beach Paradise</span>
-      </div>
-    </div>
-    <div class="state-tile">
-      <img class="tile-img" src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=500&q=80" alt="Andaman">
-      <div class="tile-grad"></div>
-      <span class="tile-price">From ₹10,999</span>
-      <div class="tile-body">
-        <div class="tile-region">Andaman</div>
-        <div class="tile-name">Havelock Island</div>
-        <span class="tile-tag">Tropical Escape</span>
-      </div>
-    </div>
-    <div class="state-tile featured" style="grid-column:span 2">
-      <img class="tile-img" src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=900&q=80" alt="Tamil Nadu">
-      <div class="tile-grad"></div>
-      <span class="tile-price">From ₹5,999</span>
-      <div class="tile-body">
-        <div class="tile-region">Tamil Nadu</div>
-        <div class="tile-name">Meenakshi Temple & Kanyakumari</div>
-        <span class="tile-tag">Ancient Dravidian Culture</span>
-      </div>
-    </div>
-    <div class="state-tile">
-      <img class="tile-img" src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=500&q=80" alt="Varanasi">
-      <div class="tile-grad"></div>
-      <span class="tile-price">From ₹5,499</span>
-      <div class="tile-body">
-        <div class="tile-region">Uttar Pradesh</div>
-        <div class="tile-name">Varanasi Ghats</div>
-        <span class="tile-tag">Spiritual Soul</span>
-      </div>
-    </div>
-    <div class="state-tile">
-      <img class="tile-img" src="https://images.unsplash.com/photo-1589197331516-4d84b72ebde3?w=500&q=80" alt="Ladakh">
-      <div class="tile-grad"></div>
-      <span class="tile-price">From ₹18,999</span>
-      <div class="tile-body">
-        <div class="tile-region">Ladakh</div>
-        <div class="tile-name">Pangong Lake</div>
-        <span class="tile-tag">High Altitude Drama</span>
-      </div>
-    </div>
-    <div class="state-tile">
-      <img class="tile-img" src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=500&q=80" alt="Meghalaya">
-      <div class="tile-grad"></div>
-      <span class="tile-price">From ₹9,999</span>
-      <div class="tile-body">
-        <div class="tile-region">Meghalaya</div>
-        <div class="tile-name">Living Root Bridges</div>
-        <span class="tile-tag">Northeast Magic</span>
-      </div>
-    </div>
+    <div class="state-tile featured"><img class="tile-img" src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=900&q=80" alt="Rajasthan"><div class="tile-grad"></div><span class="tile-price">From ₹8,499</span><div class="tile-body"><div class="tile-region">Rajasthan</div><div class="tile-name">Royal Jaipur & Jodhpur</div><span class="tile-tag">Heritage Palaces</span></div></div>
+    <div class="state-tile"><img class="tile-img" src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=500&q=80" alt="Kashmir"><div class="tile-grad"></div><span class="tile-price">From ₹12,999</span><div class="tile-body"><div class="tile-region">J & K</div><div class="tile-name">Kashmir Valley</div><span class="tile-tag">Mountain Paradise</span></div></div>
+    <div class="state-tile"><img class="tile-img" src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&q=80" alt="Kerala"><div class="tile-grad"></div><span class="tile-price">From ₹7,999</span><div class="tile-body"><div class="tile-region">Kerala</div><div class="tile-name">Backwaters & Hills</div><span class="tile-tag">God's Own Country</span></div></div>
+    <div class="state-tile"><img class="tile-img" src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&q=80" alt="Puri"><div class="tile-grad"></div><span class="tile-price">From ₹4,999</span><div class="tile-body"><div class="tile-region">Odisha</div><div class="tile-name">Puri Jagannath</div><span class="tile-tag">Sacred Pilgrimage</span></div></div>
+    <div class="state-tile"><img class="tile-img" src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=500&q=80" alt="Goa"><div class="tile-grad"></div><span class="tile-price">From ₹6,499</span><div class="tile-body"><div class="tile-region">Goa</div><div class="tile-name">Beaches & Vibes</div><span class="tile-tag">Beach Paradise</span></div></div>
+    <div class="state-tile"><img class="tile-img" src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=500&q=80" alt="Andaman"><div class="tile-grad"></div><span class="tile-price">From ₹10,999</span><div class="tile-body"><div class="tile-region">Andaman</div><div class="tile-name">Havelock Island</div><span class="tile-tag">Tropical Escape</span></div></div>
+    <div class="state-tile featured" style="grid-column:span 2"><img class="tile-img" src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=900&q=80" alt="Tamil Nadu"><div class="tile-grad"></div><span class="tile-price">From ₹5,999</span><div class="tile-body"><div class="tile-region">Tamil Nadu</div><div class="tile-name">Meenakshi Temple & Kanyakumari</div><span class="tile-tag">Ancient Dravidian Culture</span></div></div>
+    <div class="state-tile"><img class="tile-img" src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=500&q=80" alt="Varanasi"><div class="tile-grad"></div><span class="tile-price">From ₹5,499</span><div class="tile-body"><div class="tile-region">Uttar Pradesh</div><div class="tile-name">Varanasi Ghats</div><span class="tile-tag">Spiritual Soul</span></div></div>
+    <div class="state-tile"><img class="tile-img" src="https://images.unsplash.com/photo-1589197331516-4d84b72ebde3?w=500&q=80" alt="Ladakh"><div class="tile-grad"></div><span class="tile-price">From ₹18,999</span><div class="tile-body"><div class="tile-region">Ladakh</div><div class="tile-name">Pangong Lake</div><span class="tile-tag">High Altitude Drama</span></div></div>
+    <div class="state-tile"><img class="tile-img" src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=500&q=80" alt="Meghalaya"><div class="tile-grad"></div><span class="tile-price">From ₹9,999</span><div class="tile-body"><div class="tile-region">Meghalaya</div><div class="tile-name">Living Root Bridges</div><span class="tile-tag">Northeast Magic</span></div></div>
   </div>
 </section>
 
@@ -915,140 +690,37 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
   <div class="sec-head fade-in">
     <div class="eyebrow">Tour Packages</div>
     <h2 class="sh" id="pkg-h">Best Value Holiday Packages</h2>
-    <p class="sp" id="pkg-p">All-inclusive packages for every budget — from sacred pilgrimages to luxury international escapes.</p>
+    <p class="sp" id="pkg-p">All-inclusive packages for every budget — sacred pilgrimages to luxury international escapes.</p>
   </div>
   <div class="pkg-grid">
-    <div class="pkg fade-in">
-      <div class="pkg-img">
-        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Puri">
-        <span class="pkg-badge">Best Seller</span>
-      </div>
-      <div class="pkg-body">
-        <div class="pkg-dest">Odisha Circuit</div>
-        <div class="pkg-title">Puri Bhubaneswar Konark</div>
-        <div class="pkg-meta">
-          <span class="pm">📅 4N/5D</span>
-          <span class="pm">👤 2 People</span>
-          <span class="pm">🏨 3-Star</span>
-        </div>
-        <div class="pkg-foot">
-          <div class="pkg-price">₹6,999<small>/person</small></div>
-          <button class="pkg-btn" onclick="openChat()">Book Now</button>
-        </div>
-      </div>
-    </div>
-    <div class="pkg fade-in">
-      <div class="pkg-img">
-        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=600&q=80" alt="Kerala">
-        <span class="pkg-badge">Popular</span>
-      </div>
-      <div class="pkg-body">
-        <div class="pkg-dest">South India</div>
-        <div class="pkg-title">Kerala God's Own Country</div>
-        <div class="pkg-meta">
-          <span class="pm">📅 6N/7D</span>
-          <span class="pm">👤 2 People</span>
-          <span class="pm">🏨 4-Star</span>
-        </div>
-        <div class="pkg-foot">
-          <div class="pkg-price">₹11,999<small>/person</small></div>
-          <button class="pkg-btn" onclick="openChat()">Book Now</button>
-        </div>
-      </div>
-    </div>
-    <div class="pkg fade-in">
-      <div class="pkg-img">
-        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80" alt="Rajasthan">
-        <span class="pkg-badge">Heritage</span>
-      </div>
-      <div class="pkg-body">
-        <div class="pkg-dest">Rajasthan</div>
-        <div class="pkg-title">Royal Rajasthan Heritage</div>
-        <div class="pkg-meta">
-          <span class="pm">📅 7N/8D</span>
-          <span class="pm">👤 2 People</span>
-          <span class="pm">🏨 4-Star</span>
-        </div>
-        <div class="pkg-foot">
-          <div class="pkg-price">₹13,999<small>/person</small></div>
-          <button class="pkg-btn" onclick="openChat()">Book Now</button>
-        </div>
-      </div>
-    </div>
-    <div class="pkg fade-in">
-      <div class="pkg-img">
-        <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&q=80" alt="Kashmir">
-        <span class="pkg-badge">Premium</span>
-      </div>
-      <div class="pkg-body">
-        <div class="pkg-dest">J & K</div>
-        <div class="pkg-title">Kashmir Paradise Valley</div>
-        <div class="pkg-meta">
-          <span class="pm">📅 7N/8D</span>
-          <span class="pm">👤 2 People</span>
-          <span class="pm">🏨 4-Star</span>
-        </div>
-        <div class="pkg-foot">
-          <div class="pkg-price">₹22,999<small>/person</small></div>
-          <button class="pkg-btn" onclick="openChat()">Book Now</button>
-        </div>
-      </div>
-    </div>
-    <div class="pkg fade-in">
-      <div class="pkg-img">
-        <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=600&q=80" alt="Sri Lanka">
-        <span class="pkg-badge">International</span>
-      </div>
-      <div class="pkg-body">
-        <div class="pkg-dest">Sri Lanka</div>
-        <div class="pkg-title">Sri Lanka Complete Explorer</div>
-        <div class="pkg-meta">
-          <span class="pm">📅 7N/8D</span>
-          <span class="pm">✈ Flights Inc.</span>
-          <span class="pm">🏨 4-Star</span>
-        </div>
-        <div class="pkg-foot">
-          <div class="pkg-price">₹28,999<small>/person</small></div>
-          <button class="pkg-btn" onclick="openChat()">Book Now</button>
-        </div>
-      </div>
-    </div>
-    <div class="pkg fade-in">
-      <div class="pkg-img">
-        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&q=80" alt="Malaysia">
-        <span class="pkg-badge">Trending</span>
-      </div>
-      <div class="pkg-body">
-        <div class="pkg-dest">Malaysia</div>
-        <div class="pkg-title">KL + Penang + Langkawi</div>
-        <div class="pkg-meta">
-          <span class="pm">📅 6N/7D</span>
-          <span class="pm">✈ Flights Inc.</span>
-          <span class="pm">🏨 4-Star</span>
-        </div>
-        <div class="pkg-foot">
-          <div class="pkg-price">₹28,999<small>/person</small></div>
-          <button class="pkg-btn" onclick="openChat()">Book Now</button>
-        </div>
-      </div>
-    </div>
+    <div class="pkg fade-in"><div class="pkg-img"><img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Puri"><span class="pkg-badge">Best Seller</span></div><div class="pkg-body"><div class="pkg-dest">Odisha Circuit</div><div class="pkg-title">Puri Bhubaneswar Konark</div><div class="pkg-meta"><span class="pm">📅 4N/5D</span><span class="pm">👤 2 People</span><span class="pm">🏨 3-Star</span></div><div class="pkg-foot"><div class="pkg-price">₹6,999<small>/person</small></div><button class="pkg-btn" onclick="openChat()">Book Now</button></div></div></div>
+    <div class="pkg fade-in"><div class="pkg-img"><img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=600&q=80" alt="Kerala"><span class="pkg-badge">Popular</span></div><div class="pkg-body"><div class="pkg-dest">South India</div><div class="pkg-title">Kerala God's Own Country</div><div class="pkg-meta"><span class="pm">📅 6N/7D</span><span class="pm">👤 2 People</span><span class="pm">🏨 4-Star</span></div><div class="pkg-foot"><div class="pkg-price">₹11,999<small>/person</small></div><button class="pkg-btn" onclick="openChat()">Book Now</button></div></div></div>
+    <div class="pkg fade-in"><div class="pkg-img"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80" alt="Rajasthan"><span class="pkg-badge">Heritage</span></div><div class="pkg-body"><div class="pkg-dest">Rajasthan</div><div class="pkg-title">Royal Rajasthan Heritage</div><div class="pkg-meta"><span class="pm">📅 7N/8D</span><span class="pm">👤 2 People</span><span class="pm">🏨 4-Star</span></div><div class="pkg-foot"><div class="pkg-price">₹13,999<small>/person</small></div><button class="pkg-btn" onclick="openChat()">Book Now</button></div></div></div>
+    <div class="pkg fade-in"><div class="pkg-img"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&q=80" alt="Kashmir"><span class="pkg-badge">Premium</span></div><div class="pkg-body"><div class="pkg-dest">J & K</div><div class="pkg-title">Kashmir Paradise Valley</div><div class="pkg-meta"><span class="pm">📅 7N/8D</span><span class="pm">👤 2 People</span><span class="pm">🏨 4-Star</span></div><div class="pkg-foot"><div class="pkg-price">₹22,999<small>/person</small></div><button class="pkg-btn" onclick="openChat()">Book Now</button></div></div></div>
+    <div class="pkg fade-in"><div class="pkg-img"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=600&q=80" alt="Sri Lanka"><span class="pkg-badge">International</span></div><div class="pkg-body"><div class="pkg-dest">Sri Lanka</div><div class="pkg-title">Sri Lanka Complete Explorer</div><div class="pkg-meta"><span class="pm">📅 7N/8D</span><span class="pm">✈ Flights Inc.</span><span class="pm">🏨 4-Star</span></div><div class="pkg-foot"><div class="pkg-price">₹28,999<small>/person</small></div><button class="pkg-btn" onclick="openChat()">Book Now</button></div></div></div>
+    <div class="pkg fade-in"><div class="pkg-img"><img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&q=80" alt="Malaysia"><span class="pkg-badge">Trending</span></div><div class="pkg-body"><div class="pkg-dest">Malaysia</div><div class="pkg-title">KL + Penang + Langkawi</div><div class="pkg-meta"><span class="pm">📅 6N/7D</span><span class="pm">✈ Flights Inc.</span><span class="pm">🏨 4-Star</span></div><div class="pkg-foot"><div class="pkg-price">₹28,999<small>/person</small></div><button class="pkg-btn" onclick="openChat()">Book Now</button></div></div></div>
   </div>
 </section>
 
-<!-- VIDEO SECTION -->
+<!-- VIDEO SECTION — FIXED with working videos -->
 <section id="video-sec">
-  <div class="video-bg"></div>
-  <div class="video-pattern"></div>
-  <div class="video-overlay-text">
+  <div class="video-glow"></div>
+  <div class="video-head">
     <h2>Experience India Like Never Before</h2>
     <p>Watch our cinematic journey across the subcontinent</p>
   </div>
+  <div class="video-tabs">
+    <button class="vtab on" onclick="changeVideo('https://www.youtube.com/embed/dQP8LW3CIY4?rel=0&modestbranding=1',this)">🇮🇳 Incredible India</button>
+    <button class="vtab" onclick="changeVideo('https://www.youtube.com/embed/6v2L2UGZJAM?rel=0&modestbranding=1',this)">🌿 Kerala</button>
+    <button class="vtab" onclick="changeVideo('https://www.youtube.com/embed/J0IdDgsT8Ek?rel=0&modestbranding=1',this)">🏰 Rajasthan</button>
+    <button class="vtab" onclick="changeVideo('https://www.youtube.com/embed/lbnoG7cy_lc?rel=0&modestbranding=1',this)">🏔️ Kashmir</button>
+  </div>
   <div class="video-frame">
-    <iframe src="https://www.youtube.com/embed/FUyDLH2FJPQ?autoplay=0&rel=0&modestbranding=1" title="India Travel" allowfullscreen></iframe>
+    <iframe id="mainVideo" src="https://www.youtube.com/embed/dQP8LW3CIY4?rel=0&modestbranding=1" title="India Travel" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
   </div>
 </section>
 
-<!-- EXPERIENCES -->
+<!-- WHY US -->
 <section id="exp">
   <div class="sec-head fade-in">
     <div class="eyebrow" style="color:#C0392B">Why Choose Us</div>
@@ -1056,35 +728,15 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
     <p class="sp" style="color:#555" id="why-p">We craft memories that last a lifetime — with trust, expertise, and genuine care.</p>
   </div>
   <div class="exp-grid">
-    <div class="exp-card fade-in">
-      <span class="exp-icon">🛡️</span>
-      <div class="exp-title" id="ec1">Trusted & Certified</div>
-      <div class="exp-desc">IATA Accredited, GST Registered. 14+ years of building trust.</div>
-    </div>
-    <div class="exp-card fade-in">
-      <span class="exp-icon">💰</span>
-      <div class="exp-title" id="ec2">Best Price Guarantee</div>
-      <div class="exp-desc">We match or beat any competitor. Zero hidden charges — ever.</div>
-    </div>
-    <div class="exp-card fade-in">
-      <span class="exp-icon">🕐</span>
-      <div class="exp-title" id="ec3">24/7 Support</div>
-      <div class="exp-desc">Our dedicated team available round the clock for complete peace of mind.</div>
-    </div>
-    <div class="exp-card fade-in">
-      <span class="exp-icon">✈️</span>
-      <div class="exp-title" id="ec4">Custom Itineraries</div>
-      <div class="exp-desc">Every trip is tailored to your preferences, budget and travel style.</div>
-    </div>
-    <div class="exp-card fade-in">
-      <span class="exp-icon">🌍</span>
-      <div class="exp-title" id="ec5">200+ Destinations</div>
-      <div class="exp-desc">From Kanyakumari to Kashmir, Kolkata to Kuala Lumpur.</div>
-    </div>
+    <div class="exp-card fade-in"><span class="exp-icon">🛡️</span><div class="exp-title" id="ec1">Trusted & Certified</div><div class="exp-desc">IATA Accredited, GST Registered. 14+ years of building trust with 15,000+ happy travelers.</div></div>
+    <div class="exp-card fade-in"><span class="exp-icon">💰</span><div class="exp-title" id="ec2">Best Price Guarantee</div><div class="exp-desc">We match or beat any competitor price. Zero hidden charges — ever.</div></div>
+    <div class="exp-card fade-in"><span class="exp-icon">🕐</span><div class="exp-title" id="ec3">24/7 Support</div><div class="exp-desc">Our dedicated team available round the clock for complete peace of mind.</div></div>
+    <div class="exp-card fade-in"><span class="exp-icon">✈️</span><div class="exp-title" id="ec4">Custom Itineraries</div><div class="exp-desc">Every trip tailored to your preferences, budget and travel style — no cookie-cutters.</div></div>
+    <div class="exp-card fade-in"><span class="exp-icon">🌍</span><div class="exp-title" id="ec5">200+ Destinations</div><div class="exp-desc">From Kanyakumari to Kashmir, Kolkata to Kuala Lumpur — we cover it all.</div></div>
   </div>
 </section>
 
-<!-- GALLERY MASONRY -->
+<!-- GALLERY -->
 <section id="gallery">
   <div class="sec-head fade-in">
     <div class="eyebrow">Travel Gallery</div>
@@ -1092,54 +744,18 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
     <p class="sp" id="gal-p">A glimpse into the unforgettable journeys crafted for our travelers.</p>
   </div>
   <div class="gal-grid">
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&q=80" alt="Rajasthan">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&q=80" alt="Kerala">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&q=80" alt="Kashmir">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&q=80" alt="Sri Lanka">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&q=80" alt="Puri">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400&q=80" alt="Malaysia">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&q=80" alt="Andaman">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=400&q=80" alt="Hills">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&q=80" alt="Tamil Nadu">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1589197331516-4d84b72ebde3?w=400&q=80" alt="Ladakh">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Varanasi">
-      <div class="gal-hover"></div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=400&q=80" alt="Hills">
-      <div class="gal-hover"></div>
-    </div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&q=80" alt="Rajasthan"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&q=80" alt="Kerala"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&q=80" alt="Kashmir"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&q=80" alt="Sri Lanka"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&q=80" alt="Puri"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400&q=80" alt="Malaysia"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&q=80" alt="Andaman"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=400&q=80" alt="Hills"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&q=80" alt="Tamil Nadu"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1589197331516-4d84b72ebde3?w=400&q=80" alt="Ladakh"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Varanasi"><div class="gal-hover"></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=400&q=80" alt="Hills"><div class="gal-hover"></div></div>
   </div>
 </section>
 
@@ -1151,42 +767,9 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
     <p class="sp" id="testi-p">Real stories from real travelers. Their happiness is our greatest achievement.</p>
   </div>
   <div class="testi-grid">
-    <div class="testi-card fade-in">
-      <div class="testi-q">"</div>
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Kindora made our Puri pilgrimage absolutely seamless. The hotel was excellent, the guide was wonderful, and everything was perfectly on time. We will book again!"</p>
-      <div class="testi-author">
-        <div class="ta-av" style="background:linear-gradient(135deg,#C0392B,#FF6B00)">R</div>
-        <div>
-          <div class="ta-name">Rajan Sharma</div>
-          <div class="ta-loc">📍 Kolkata</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card fade-in">
-      <div class="testi-q">"</div>
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Our Sri Lanka honeymoon was absolutely perfect! From Kandy to Ella, every single detail was taken care of. Transparent pricing and a super helpful team."</p>
-      <div class="testi-author">
-        <div class="ta-av" style="background:linear-gradient(135deg,#8E44AD,#C0392B)">P</div>
-        <div>
-          <div class="ta-name">Priya & Arun</div>
-          <div class="ta-loc">📍 Chennai</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card fade-in">
-      <div class="testi-q">"</div>
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Booked Malaysia for a family of 6. Kindora handled everything — flights, hotels, transfers. The kids had the time of their lives at Genting Highlands!"</p>
-      <div class="testi-author">
-        <div class="ta-av" style="background:linear-gradient(135deg,#1A6FA0,#0D2B5E)">S</div>
-        <div>
-          <div class="ta-name">Suresh Patel</div>
-          <div class="ta-loc">📍 Ahmedabad</div>
-        </div>
-      </div>
-    </div>
+    <div class="testi-card fade-in"><div class="testi-q">"</div><div class="stars">★★★★★</div><p class="testi-text">"Kindora made our Puri pilgrimage absolutely seamless. The hotel was excellent, the guide was wonderful, and everything was perfectly on time. We will definitely book again!"</p><div class="testi-author"><div class="ta-av" style="background:linear-gradient(135deg,#C0392B,#FF6B00)">R</div><div><div class="ta-name">Rajan Sharma</div><div class="ta-loc">📍 Kolkata</div></div></div></div>
+    <div class="testi-card fade-in"><div class="testi-q">"</div><div class="stars">★★★★★</div><p class="testi-text">"Our Sri Lanka honeymoon was absolutely perfect! From Kandy to Ella, every single detail was taken care of. Transparent pricing and a super helpful team throughout."</p><div class="testi-author"><div class="ta-av" style="background:linear-gradient(135deg,#8E44AD,#C0392B)">P</div><div><div class="ta-name">Priya & Arun</div><div class="ta-loc">📍 Chennai</div></div></div></div>
+    <div class="testi-card fade-in"><div class="testi-q">"</div><div class="stars">★★★★★</div><p class="testi-text">"Booked Malaysia for a family of 6. Kindora handled everything — flights, hotels, transfers. The kids had the time of their lives at Genting Highlands!"</p><div class="testi-author"><div class="ta-av" style="background:linear-gradient(135deg,#1A6FA0,#0D2B5E)">S</div><div><div class="ta-name">Suresh Patel</div><div class="ta-loc">📍 Ahmedabad</div></div></div></div>
   </div>
 </section>
 
@@ -1216,22 +799,10 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
   <div class="contact-grid">
     <div>
       <div class="ci-block">
-        <div class="ci">
-          <div class="ci-icon">📞</div>
-          <div class="ci-t"><strong id="ci1">Call / WhatsApp</strong>+91 98765 43210</div>
-        </div>
-        <div class="ci">
-          <div class="ci-icon">✉️</div>
-          <div class="ci-t"><strong id="ci2">Email Us</strong>info@kindoraholidays.com</div>
-        </div>
-        <div class="ci">
-          <div class="ci-icon">🕐</div>
-          <div class="ci-t"><strong id="ci3">Working Hours</strong>Mon – Sat, 9:00 AM – 7:00 PM</div>
-        </div>
-        <div class="ci">
-          <div class="ci-icon">📍</div>
-          <div class="ci-t"><strong id="ci4">Office</strong>Kolkata, West Bengal, India</div>
-        </div>
+        <div class="ci"><div class="ci-icon">📞</div><div class="ci-t"><strong id="ci1">Call / WhatsApp</strong>+91 98765 43210</div></div>
+        <div class="ci"><div class="ci-icon">✉️</div><div class="ci-t"><strong id="ci2">Email Us</strong>info@kindoraholidays.com</div></div>
+        <div class="ci"><div class="ci-icon">🕐</div><div class="ci-t"><strong id="ci3">Working Hours</strong>Mon – Sat, 9:00 AM – 7:00 PM</div></div>
+        <div class="ci"><div class="ci-icon">📍</div><div class="ci-t"><strong id="ci4">Office</strong>Kolkata, West Bengal, India</div></div>
       </div>
     </div>
     <div class="cform">
@@ -1240,32 +811,12 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
         <div class="fg"><label id="fl1">Full Name</label><input type="text" placeholder="Your name"></div>
         <div class="fg"><label id="fl2">Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
       </div>
-      <div class="fg">
-        <label id="fl3">Destination</label>
-        <select>
-          <option>Select Destination</option>
-          <option>Puri / Odisha</option>
-          <option>Kerala</option>
-          <option>Rajasthan</option>
-          <option>Kashmir</option>
-          <option>Tamil Nadu</option>
-          <option>Andaman Islands</option>
-          <option>Sri Lanka</option>
-          <option>Malaysia</option>
-          <option>Other</option>
-        </select>
-      </div>
+      <div class="fg"><label id="fl3">Destination</label><select><option>Select Destination</option><option>Puri / Odisha</option><option>Kerala</option><option>Rajasthan</option><option>Kashmir</option><option>Tamil Nadu</option><option>Andaman Islands</option><option>Sri Lanka</option><option>Malaysia</option><option>Other</option></select></div>
       <div class="frow">
         <div class="fg"><label id="fl4">Travel Date</label><input type="date"></div>
-        <div class="fg">
-          <label id="fl5">Travelers</label>
-          <select><option>1 Person</option><option>2 People</option><option>3-4</option><option>5+</option></select>
-        </div>
+        <div class="fg"><label id="fl5">Travelers</label><select><option>1 Person</option><option>2 People</option><option>3-4</option><option>5+</option></select></div>
       </div>
-      <div class="fg">
-        <label id="fl6">Message</label>
-        <textarea id="fmsg" placeholder="Tell us about your dream trip, budget, special requirements..."></textarea>
-      </div>
+      <div class="fg"><label id="fl6">Message</label><textarea id="fmsg" placeholder="Tell us about your dream trip, budget, special requirements..."></textarea></div>
       <button class="fsub" id="fsub">Send My Enquiry ✈</button>
     </div>
   </div>
@@ -1276,51 +827,21 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
   <div class="fg-grid">
     <div>
       <div class="fl-logo">
-        <div class="logo-icon">
-  <img src="k_logo.png" alt="logo" style="width:100%; height:100%; object-fit:contain;">
-</div>
+        <img src="k_logo.png" class="fl-logo-img" alt="Kindora" onerror="this.style.display='none'">
         <div>
-          <div class="logo-text">Kindora Holidays</div>
-          <div class="logo-sub">Explore India & Beyond</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff">Kindora Holidays</div>
+          <div style="font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-top:2px">Explore India & Beyond</div>
         </div>
       </div>
       <p class="fl-desc">India's trusted travel partner since 2010. We craft unforgettable journeys — from sacred pilgrimages to tropical escapes.</p>
       <div class="fl-cert">IATA Accredited &nbsp;|&nbsp; GST Registered</div>
     </div>
-    <div>
-      <div class="fl-title">India</div>
-      <ul class="fl-links">
-        <li><a href="#">Puri & Odisha</a></li>
-        <li><a href="#">Kerala</a></li>
-        <li><a href="#">Rajasthan</a></li>
-        <li><a href="#">Kashmir</a></li>
-        <li><a href="#">Andaman Islands</a></li>
-        <li><a href="#">Tamil Nadu</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="fl-title">International</div>
-      <ul class="fl-links">
-        <li><a href="#">Sri Lanka</a></li>
-        <li><a href="#">Malaysia</a></li>
-        <li><a href="#">Thailand</a></li>
-        <li><a href="#">Singapore</a></li>
-        <li><a href="#">Nepal & Bhutan</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="fl-title">Quick Links</div>
-      <ul class="fl-links">
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">All Packages</a></li>
-        <li><a href="#">Blog & Tips</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
-    </div>
+    <div><div class="fl-title">India</div><ul class="fl-links"><li><a href="#">Puri & Odisha</a></li><li><a href="#">Kerala</a></li><li><a href="#">Rajasthan</a></li><li><a href="#">Kashmir</a></li><li><a href="#">Andaman Islands</a></li><li><a href="#">Tamil Nadu</a></li></ul></div>
+    <div><div class="fl-title">International</div><ul class="fl-links"><li><a href="#">Sri Lanka</a></li><li><a href="#">Malaysia</a></li><li><a href="#">Thailand</a></li><li><a href="#">Singapore</a></li><li><a href="#">Nepal & Bhutan</a></li></ul></div>
+    <div><div class="fl-title">Quick Links</div><ul class="fl-links"><li><a href="#">About Us</a></li><li><a href="#">All Packages</a></li><li><a href="#">Blog & Tips</a></li><li><a href="#">Gallery</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
   </div>
   <div class="fbot">
-    <div class="fcopy">© 2025 Kindora Holidays. All Rights Reserved.</div>
+    <div class="fcopy">© 2025 Kindora Holidays. All Rights Reserved. Made with ❤️ in India</div>
     <div class="fsocial">
       <a href="#" class="fsoc">f</a>
       <a href="#" class="fsoc">ig</a>
@@ -1335,10 +856,7 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
   <div class="chat-win" id="chatWin">
     <div class="chead">
       <div class="cav">✈</div>
-      <div>
-        <div class="cname">Kindora AI Assistant</div>
-        <div class="cstatus">🟢 Online · Replies instantly</div>
-      </div>
+      <div><div class="cname">Kindora AI Assistant</div><div class="cstatus">🟢 Online · Replies instantly</div></div>
       <button class="cclose" onclick="closeChat()">✕</button>
     </div>
     <div class="cmsgs" id="cmsgs">
@@ -1361,7 +879,8 @@ footer{background:var(--deep);border-top:1px solid rgba(212,175,55,0.1);padding:
 </div>
 
 <script>
-const STATES = {
+// ===== STATE DATA =====
+const STATES={
   jk:{flag:'🏔️',name:'Jammu & Kashmir',sub:'Heaven on Earth',desc:'Dal Lake, Gulmarg ski resort, Pahalgam valley, Sonmarg glacier. India\'s most scenic destination with Mughal gardens and houseboat stays on pristine lakes.',tags:['Mountains','Skiing','Houseboats','Valleys'],price:'From ₹12,999'},
   hp:{flag:'🌄',name:'Himachal Pradesh',sub:'Dev Bhoomi — Land of Gods',desc:'Shimla, Manali, Dharamsala, Spiti Valley. Snow-capped peaks, Buddhist monasteries, apple orchards, and thrilling adventure sports.',tags:['Mountains','Adventure','Monasteries'],price:'From ₹8,999'},
   pb:{flag:'🌾',name:'Punjab',sub:'Land of Five Rivers',desc:'Amritsar Golden Temple, Jallianwala Bagh, Wagah Border. Vibrant culture, bhangra, and the world\'s most sacred Sikh pilgrimage.',tags:['Spiritual','Culture','Heritage'],price:'From ₹4,999'},
@@ -1375,7 +894,7 @@ const STATES = {
   od:{flag:'🛕',name:'Odisha',sub:'Soul of Incredible India',desc:'Puri Jagannath Temple, Konark Sun Temple (UNESCO), Chilika Lake, Bhubaneswar temples, Puri beach. India\'s most spiritually rich state.',tags:['Spiritual','UNESCO','Beach','Heritage'],price:'From ₹4,999'},
   mp:{flag:'🐆',name:'Madhya Pradesh',sub:'Heart of India',desc:'Khajuraho temples (UNESCO), Kanha & Bandhavgarh tiger reserves, Sanchi Stupa, Mandu ruins. India\'s greatest wildlife and heritage state.',tags:['Wildlife','UNESCO','History','Temples'],price:'From ₹6,999'},
   mh:{flag:'🌊',name:'Maharashtra',sub:'Land of Forts',desc:'Mumbai city, Ajanta-Ellora caves (UNESCO), Lonavala, Mahabaleshwar, Aurangabad. Historic Maratha forts and ancient Buddhist rock-cut art.',tags:['UNESCO','Beaches','Forts','Culture'],price:'From ₹5,999'},
-  ga:{flag:'🏖️',name:'Goa',sub:'Pearl of the Orient',desc:'Calangute, Baga, Anjuna beaches, Dudhsagar waterfall, Old Goa churches (UNESCO), vibrant nightlife and seafood. India\'s most-visited beach destination.',tags:['Beach','Nightlife','UNESCO','Party'],price:'From ₹5,499'},
+  ga:{flag:'🏖️',name:'Goa',sub:'Pearl of the Orient',desc:'Calangute, Baga, Anjuna beaches, Dudhsagar waterfall, Old Goa churches (UNESCO), vibrant nightlife and seafood. India\'s most-visited beach destination.',tags:['Beach','Nightlife','UNESCO'],price:'From ₹5,499'},
   ka:{flag:'🌿',name:'Karnataka',sub:'One State Many Worlds',desc:'Hampi ruins (UNESCO), Mysore Palace, Coorg coffee estates, Gokarna beach, Kabini wildlife, Chikmagalur hill station.',tags:['UNESCO','Heritage','Wildlife','Hills'],price:'From ₹6,499'},
   tg:{flag:'💎',name:'Telangana',sub:'Land of Nizams',desc:'Hyderabad Charminar, Golconda Fort, Ramoji Film City, Nagarjuna Sagar dam. Famous for Hyderabadi biryani and pearl bazaars.',tags:['Heritage','Culture','Food'],price:'From ₹4,999'},
   ap:{flag:'🌅',name:'Andhra Pradesh',sub:'Sunrise State',desc:'Tirupati Venkateshwara Temple (world\'s richest), Araku Valley, Visakhapatnam beaches, Amaravati ancient Buddhist site.',tags:['Spiritual','Beaches','Heritage'],price:'From ₹5,499'},
@@ -1387,63 +906,46 @@ const STATES = {
   as:{flag:'🦏',name:'Assam',sub:'Gateway to Northeast',desc:'Kaziranga National Park (one-horned rhino, UNESCO), Majuli river island, Kamakhya Temple, Sivasagar, tea estates. True wilderness of India.',tags:['Wildlife','UNESCO','Tea','Culture'],price:'From ₹8,999'},
   mg:{flag:'🌧️',name:'Meghalaya',sub:'Abode of Clouds',desc:'Cherrapunji & Mawsynram (wettest places on Earth), living root bridges, Umiam Lake, Nohkalikai Falls, Dawki crystal river.',tags:['Nature','Adventure','Waterfalls'],price:'From ₹9,999'},
   sk:{flag:'🏔️',name:'Sikkim',sub:'Land of Mystic Splendour',desc:'Gangtok city, Yumthang Valley of flowers, Nathula Pass China border, Tsomgo Lake, Rumtek Monastery. India\'s hidden mountain gem.',tags:['Mountains','Monasteries','Views'],price:'From ₹9,499'},
-  an:{flag:'🏝️',name:'Andaman & Nicobar',sub:'Emerald Islands',desc:'Havelock Island (Radhanagar Beach — Asia\'s Best), Cellular Jail, scuba diving, Port Blair. India\'s most exotic tropical paradise.',tags:['Beach','Diving','Islands','Nature'],price:'From ₹10,999'}
+  an:{flag:'🏝️',name:'Andaman & Nicobar',sub:'Emerald Islands',desc:'Havelock Island (Radhanagar Beach — Asia\'s Best), Cellular Jail, scuba diving, Port Blair. India\'s most exotic tropical paradise.',tags:['Beach','Diving','Islands','Nature'],price:'From ₹10,999'},
+  ne:{flag:'🌿',name:'Northeast India',sub:'Seven Sisters of India',desc:'Nagaland, Manipur, Mizoram, Tripura — rich tribal cultures, hornbill festival, terraced fields, and pristine forests. India\'s undiscovered paradise.',tags:['Tribal','Nature','Culture'],price:'From ₹11,999'}
 };
 
-const STATE_LIST = [
-  {id:'jk',emoji:'🏔️',name:'Kashmir'},
-  {id:'hp',emoji:'🌄',name:'Himachal'},
-  {id:'rj',emoji:'🏰',name:'Rajasthan'},
-  {id:'gj',emoji:'🦁',name:'Gujarat'},
-  {id:'up',emoji:'🕌',name:'Uttar Pradesh'},
-  {id:'uk',emoji:'⛰️',name:'Uttarakhand'},
-  {id:'dl',emoji:'🏛️',name:'Delhi'},
-  {id:'wb',emoji:'🐯',name:'West Bengal'},
-  {id:'od',emoji:'🛕',name:'Odisha'},
-  {id:'mp',emoji:'🐆',name:'Madhya Pradesh'},
-  {id:'mh',emoji:'🌊',name:'Maharashtra'},
-  {id:'ga',emoji:'🏖️',name:'Goa'},
-  {id:'ka',emoji:'🌿',name:'Karnataka'},
-  {id:'tn',emoji:'🏛️',name:'Tamil Nadu'},
-  {id:'kl',emoji:'🌴',name:'Kerala'},
-  {id:'as',emoji:'🦏',name:'Assam'},
-  {id:'mg',emoji:'🌧️',name:'Meghalaya'},
-  {id:'sk',emoji:'🏔️',name:'Sikkim'},
-  {id:'an',emoji:'🏝️',name:'Andaman'},
-  {id:'ap',emoji:'🌅',name:'Andhra Pradesh'}
+const STATE_LIST=[
+  {id:'jk',emoji:'🏔️',name:'Kashmir'},{id:'hp',emoji:'🌄',name:'Himachal'},
+  {id:'rj',emoji:'🏰',name:'Rajasthan'},{id:'gj',emoji:'🦁',name:'Gujarat'},
+  {id:'up',emoji:'🕌',name:'Uttar Pradesh'},{id:'uk',emoji:'⛰️',name:'Uttarakhand'},
+  {id:'dl',emoji:'🏛️',name:'Delhi'},{id:'wb',emoji:'🐯',name:'West Bengal'},
+  {id:'od',emoji:'🛕',name:'Odisha'},{id:'mp',emoji:'🐆',name:'Madhya Pradesh'},
+  {id:'mh',emoji:'🌊',name:'Maharashtra'},{id:'ga',emoji:'🏖️',name:'Goa'},
+  {id:'ka',emoji:'🌿',name:'Karnataka'},{id:'tn',emoji:'🏛️',name:'Tamil Nadu'},
+  {id:'kl',emoji:'🌴',name:'Kerala'},{id:'as',emoji:'🦏',name:'Assam'},
+  {id:'mg',emoji:'🌧️',name:'Meghalaya'},{id:'sk',emoji:'🏔️',name:'Sikkim'},
+  {id:'an',emoji:'🏝️',name:'Andaman'},{id:'ap',emoji:'🌅',name:'Andhra Pradesh'}
 ];
 
 function buildStateList(){
   const l=document.getElementById('stateList');
-  l.innerHTML=STATE_LIST.map(s=>`
-    <div class="sl-item" id="sl-${s.id}" onclick="selectState('${s.id}')">
-      <span class="sl-emoji">${s.emoji}</span>
-      <span class="sl-name">${s.name}</span>
-    </div>
-  `).join('');
+  l.innerHTML=STATE_LIST.map(s=>`<div class="sl-item" id="sl-${s.id}" onclick="selectState('${s.id}')"><span class="sl-emoji">${s.emoji}</span><span class="sl-name">${s.name}</span></div>`).join('');
 }
 buildStateList();
 
 function selectState(id){
-  const s=STATES[id];
-  if(!s)return;
-  document.querySelectorAll('.state-path').forEach(p=>p.classList.remove('active'));
+  const s=STATES[id];if(!s)return;
+  document.querySelectorAll('.st').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.sl-item').forEach(i=>i.classList.remove('sel'));
   const path=document.getElementById('sp-'+id);
   if(path)path.classList.add('active');
   const slItem=document.getElementById('sl-'+id);
-  if(slItem)slItem.classList.add('sel');
+  if(slItem){slItem.classList.add('sel');slItem.scrollIntoView({behavior:'smooth',block:'nearest'})}
   document.getElementById('sc-flag').textContent=s.flag;
   document.getElementById('sc-name').textContent=s.name;
   document.getElementById('sc-sub').textContent=s.sub;
   document.getElementById('sc-desc').textContent=s.desc;
   const tags=document.getElementById('sc-tags');
   tags.innerHTML=s.tags.map(t=>`<span class="sc-tag">${t}</span>`).join('');
-  const priceSpan=document.createElement('span');
-  priceSpan.className='sc-tag';priceSpan.style.background='rgba(212,175,55,0.15)';
-  priceSpan.style.borderColor='rgba(212,175,55,0.3)';priceSpan.style.color='#D4AF37';
-  priceSpan.textContent=s.price;
-  tags.appendChild(priceSpan);
+  const ps=document.createElement('span');
+  ps.className='sc-tag';ps.style.cssText='background:rgba(212,175,55,0.15);border-color:rgba(212,175,55,0.35);color:#D4AF37';
+  ps.textContent=s.price;tags.appendChild(ps);
 }
 
 // Hero slideshow
@@ -1457,17 +959,29 @@ slides.forEach((_,i)=>{
 });
 function goSlide(n){
   slides[slide].classList.remove('active');
-  document.querySelectorAll('.dot')[slide].classList.remove('on');
+  document.querySelectorAll('#slideDots .dot')[slide].classList.remove('on');
   slide=n;
   slides[slide].classList.add('active');
-  document.querySelectorAll('.dot')[slide].classList.add('on');
+  document.querySelectorAll('#slideDots .dot')[slide].classList.add('on');
 }
-setInterval(()=>goSlide((slide+1)%slides.length),5000);
+setInterval(()=>goSlide((slide+1)%slides.length),5500);
 
 // Nav scroll
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('solid',window.scrollY>60);
 });
+
+// Mobile menu
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Video change
+function changeVideo(src,btn){
+  document.getElementById('mainVideo').src=src;
+  document.querySelectorAll('.vtab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+}
 
 // Fade-in observer
 const obs=new IntersectionObserver(entries=>{
@@ -1477,14 +991,14 @@ document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 
 // Multi-language
 const LANG={
-  en:{h1l1:'Discover Sacred',h1l2:'India & The World',h1l3:'Beyond.',hp:'From the sacred temples of Puri to the misty valleys of Kashmir — every journey crafted with love.',hbtn1:'Explore Packages',hbtn2:'Get Free Quote',sl1:'Happy Travelers',sl2:'Destinations',sl3:'Years Experience',sl4:'Rating',mh:'Explore Every Corner of India',mp:'Click any state to discover attractions and packages.',dh:'India\'s Most Beautiful Places',dp:'Handpicked destinations across every region.',pkh:'Best Value Holiday Packages',pkp:'All-inclusive packages for every budget.',wyh:'The Kindora Difference',wyp:'We craft memories that last a lifetime.',galh:'Moments We\'ve Created',galp:'A glimpse into the journeys crafted for our travelers.',tesh:'What Our Travelers Say',tesp:'Real stories from real travelers.',conh:'Let\'s Plan Your Dream Journey',conp:'Tell us where you want to go.',cft:'Get a Free Quote',fl1:'Full Name',fl2:'Phone',fl3:'Destination',fl4:'Travel Date',fl5:'Travelers',fl6:'Message',fsub:'Send My Enquiry ✈',ci1:'Call / WhatsApp',ci2:'Email Us',ci3:'Working Hours',ci4:'Office',ec1:'Trusted & Certified',ec2:'Best Price Guarantee',ec3:'24/7 Support',ec4:'Custom Itineraries',ec5:'200+ Destinations',hb:'Trusted Travel Partner Since 2010'},
-  hi:{h1l1:'पवित्र भारत',h1l2:'और दुनिया की',h1l3:'खोज करें',hp:'पुरी के पवित्र मंदिरों से कश्मीर की धुंध भरी घाटियों तक — हर यात्रा प्यार से बनाई गई।',hbtn1:'पैकेज देखें',hbtn2:'मुफ्त कोटेशन',sl1:'खुश यात्री',sl2:'गंतव्य',sl3:'वर्षों का अनुभव',sl4:'रेटिंग',mh:'भारत के हर कोने को खोजें',mp:'राज्य पर क्लिक करें और पर्यटन स्थल जानें।',dh:'भारत की सबसे खूबसूरत जगहें',dp:'हर क्षेत्र से चुने गए बेहतरीन गंतव्य।',pkh:'सर्वोत्तम मूल्य के पैकेज',pkp:'हर बजट के लिए ऑल-इंक्लूसिव पैकेज।',wyh:'किंदोरा की खासियत',wyp:'हम ऐसी यादें बनाते हैं जो जीवन भर रहती हैं।',galh:'हमारे बनाए पल',galp:'हमारे यात्रियों की अविस्मरणीय यात्राओं की एक झलक।',tesh:'हमारे यात्री क्या कहते हैं',tesp:'असली यात्रियों की असली कहानियां।',conh:'अपनी सपनों की यात्रा प्लान करें',conp:'बताइए आप कहां जाना चाहते हैं।',cft:'मुफ्त कोटेशन पाएं',fl1:'पूरा नाम',fl2:'फोन नंबर',fl3:'गंतव्य',fl4:'यात्रा की तारीख',fl5:'यात्री',fl6:'संदेश',fsub:'अपनी पूछताछ भेजें ✈',ci1:'कॉल / व्हाट्सएप',ci2:'ईमेल करें',ci3:'काम के घंटे',ci4:'कार्यालय',ec1:'विश्वसनीय और प्रमाणित',ec2:'सर्वोत्तम मूल्य की गारंटी',ec3:'24/7 सहायता',ec4:'कस्टम यात्रा कार्यक्रम',ec5:'200+ गंतव्य',hb:'2010 से विश्वसनीय यात्रा साथी'},
-  bn:{h1l1:'পবিত্র ভারত',h1l2:'এবং বিশ্ব',h1l3:'আবিষ্কার করুন',hp:'পুরীর পবিত্র মন্দির থেকে কাশ্মীরের霧াচ্ছন্ন উপত্যকা পর্যন্ত — প্রতিটি যাত্রা ভালোবাসায় তৈরি।',hbtn1:'প্যাকেজ দেখুন',hbtn2:'বিনামূল্যে কোটেশন',sl1:'সুখী ভ্রমণকারী',sl2:'গন্তব্য',sl3:'বছরের অভিজ্ঞতা',sl4:'রেটিং',mh:'ভারতের প্রতিটি কোণ আবিষ্কার করুন',mp:'যেকোনো রাজ্যে ক্লিক করুন এবং আকর্ষণ জানুন।',dh:'ভারতের সবচেয়ে সুন্দর জায়গা',dp:'প্রতিটি অঞ্চল থেকে বাছাই করা গন্তব্য।',pkh:'সেরা মূল্যের প্যাকেজ',pkp:'প্রতিটি বাজেটের জন্য প্যাকেজ।',wyh:'কিন্দোরার পার্থক্য',wyp:'আমরা এমন স্মৃতি তৈরি করি যা সারাজীবন থাকে।',galh:'আমাদের তৈরি মুহূর্ত',galp:'আমাদের ভ্রমণকারীদের অবিস্মরণীয় যাত্রার ঝলক।',tesh:'আমাদের ভ্রমণকারীরা কী বলেন',tesp:'সত্যিকারের ভ্রমণকারীদের সত্যিকারের গল্প।',conh:'আপনার স্বপ্নের যাত্রা পরিকল্পনা করুন',conp:'আমাদের বলুন আপনি কোথায় যেতে চান।',cft:'বিনামূল্যে কোটেশন পান',fl1:'পুরো নাম',fl2:'ফোন নম্বর',fl3:'গন্তব্য',fl4:'ভ্রমণের তারিখ',fl5:'ভ্রমণকারী',fl6:'বার্তা',fsub:'অনুসন্ধান পাঠান ✈',ci1:'কল / হোয়াটসঅ্যাপ',ci2:'ইমেইল করুন',ci3:'কাজের সময়',ci4:'অফিস',ec1:'বিশ্বস্ত ও প্রমাণিত',ec2:'সেরা মূল্যের গ্যারান্টি',ec3:'২৪/৭ সহায়তা',ec4:'কাস্টম ভ্রমণ পরিকল্পনা',ec5:'২০০+ গন্তব্য',hb:'২০১০ সাল থেকে বিশ্বস্ত ভ্রমণ সঙ্গী'},
-  ta:{h1l1:'புனித இந்தியா',h1l2:'மற்றும் உலகை',h1l3:'கண்டறியுங்கள்',hp:'புரியின் புனித கோயில்களிலிருந்து காஷ்மீரின் மூடுபனி பள்ளத்தாக்குகள் வரை — ஒவ்வொரு பயணமும் அன்புடன் வடிவமைக்கப்பட்டது.',hbtn1:'பேக்கேஜ்களை காண்க',hbtn2:'இலவச மேற்கோள்',sl1:'மகிழ்ச்சியான பயணிகள்',sl2:'இடங்கள்',sl3:'ஆண்டுகள் அனுபவம்',sl4:'மதிப்பீடு',mh:'இந்தியாவின் ஒவ்வொரு மூலையையும் ஆராயுங்கள்',mp:'எந்த மாநிலத்திலும் கிளிக் செய்யுங்கள்.',dh:'இந்தியாவின் அழகான இடங்கள்',dp:'தேர்ந்தெடுக்கப்பட்ட இடங்கள்.',pkh:'சிறந்த விலை பேக்கேஜ்கள்',pkp:'எல்லா பட்ஜெட்டிற்கும் பேக்கேஜ்கள்.',wyh:'கிண்டோரா வித்தியாசம்',wyp:'ஆயுளில் நிலைக்கும் நினைவுகளை உருவாக்குகிறோம்.',galh:'நாங்கள் உருவாக்கிய தருணங்கள்',galp:'எங்கள் பயணிகளின் பயணங்களின் ஒரு பார்வை.',tesh:'எங்கள் பயணிகள் என்ன சொல்கிறார்கள்',tesp:'உண்மையான பயணிகளின் உண்மையான கதைகள்.',conh:'உங்கள் கனவு பயணத்தை திட்டமிடுங்கள்',conp:'நீங்கள் எங்கு போக விரும்புகிறீர்கள் என்று சொல்லுங்கள்.',cft:'இலவச மேற்கோள் பெறுங்கள்',fl1:'முழு பெயர்',fl2:'தொலைபேசி',fl3:'இடம்',fl4:'பயண தேதி',fl5:'பயணிகள்',fl6:'செய்தி',fsub:'விசாரணை அனுப்பவும் ✈',ci1:'அழைப்பு / வாட்ஸ்ஆப்',ci2:'மின்னஞ்சல் அனுப்பு',ci3:'பணி நேரம்',ci4:'அலுவலகம்',ec1:'நம்பகமான & சான்றளிக்கப்பட்ட',ec2:'சிறந்த விலை உத்தரவாதம்',ec3:'24/7 ஆதரவு',ec4:'தனிப்பயன் பயணங்கள்',ec5:'200+ இடங்கள்',hb:'2010 முதல் நம்பகமான பயண கூட்டாளர்'},
-  te:{h1l1:'పవిత్ర భారతం',h1l2:'మరియు ప్రపంచాన్ని',h1l3:'కనుగొనండి',hp:'పూరీ పవిత్ర ఆలయాల నుండి కాశ్మీర్ మంచు కమ్మిన లోయల వరకు — ప్రతి యాత్ర ప్రేమతో రూపొందించబడింది.',hbtn1:'ప్యాకేజీలు చూడండి',hbtn2:'ఉచిత కోటేషన్',sl1:'సంతోషమైన యాత్రికులు',sl2:'గమ్యస్థానాలు',sl3:'సంవత్సరాల అనుభవం',sl4:'రేటింగ్',mh:'భారతదేశంలోని ప్రతి మూలను అన్వేషించండి',mp:'ఏదైనా రాష్ట్రాన్ని క్లిక్ చేయండి.',dh:'భారతదేశంలోని అందమైన ప్రదేశాలు',dp:'ప్రతి ప్రాంతం నుండి ఎంపిక చేయబడిన గమ్యస్థానాలు.',pkh:'అత్యుత్తమ ప్యాకేజీలు',pkp:'అన్ని బడ్జెట్‌లకు ప్యాకేజీలు.',wyh:'కిందోరా తేడా',wyp:'జీవితాంతం నిలిచే జ్ఞాపకాలను సృష్టిస్తాం.',galh:'మేము సృష్టించిన క్షణాలు',galp:'మా యాత్రికుల అవిస్మరణీయ ప్రయాణాల ఒక సంక్షిప్తం.',tesh:'మా యాత్రికులు ఏమంటున్నారు',tesp:'నిజమైన యాత్రికుల నిజమైన కథలు.',conh:'మీ కల వంటి యాత్రను ప్లాన్ చేయండి',conp:'మీరు ఎక్కడికి వెళ్ళాలనుకుంటున్నారో చెప్పండి.',cft:'ఉచిత కోటేషన్ పొందండి',fl1:'పూర్తి పేరు',fl2:'ఫోన్',fl3:'గమ్యస్థానం',fl4:'ప్రయాణ తేది',fl5:'యాత్రికులు',fl6:'సందేశం',fsub:'విచారణ పంపండి ✈',ci1:'కాల్ / వాట్సాప్',ci2:'ఇమెయిల్ పంపండి',ci3:'పని గంటలు',ci4:'కార్యాలయం',ec1:'విశ్వసనీయమైన & సర్టిఫైడ్',ec2:'అత్యుత్తమ ధర హామీ',ec3:'24/7 మద్దతు',ec4:'కస్టమ్ ప్రయాణాలు',ec5:'200+ గమ్యస్థానాలు',hb:'2010 నుండి విశ్వసనీయ యాత్రా భాగస్వామి'},
-  mr:{h1l1:'पवित्र भारत',h1l2:'आणि जगाचा',h1l3:'शोध घ्या',hp:'पुरीच्या पवित्र मंदिरांपासून काश्मीरच्या धुक्याने वेढलेल्या दऱ्यांपर्यंत — प्रत्येक प्रवास प्रेमाने बनवला आहे.',hbtn1:'पॅकेजेस पाहा',hbtn2:'मोफत कोटेशन',sl1:'आनंदी प्रवासी',sl2:'ठिकाणे',sl3:'वर्षांचा अनुभव',sl4:'रेटिंग',mh:'भारताचा प्रत्येक कोपरा एक्सप्लोर करा',mp:'कोणत्याही राज्यावर क्लिक करा.',dh:'भारतातील सर्वात सुंदर ठिकाणे',dp:'प्रत्येक प्रदेशातून निवडलेली ठिकाणे.',pkh:'सर्वोत्तम किंमत पॅकेजेस',pkp:'प्रत्येक बजेटसाठी पॅकेजेस.',wyh:'किंदोराचे वेगळेपण',wyp:'आम्ही आयुष्यभर टिकणाऱ्या आठवणी बनवतो.',galh:'आम्ही बनवलेले क्षण',galp:'आमच्या प्रवाशांच्या अविस्मरणीय प्रवासाची झलक.',tesh:'आमचे प्रवासी काय म्हणतात',tesp:'खऱ्या प्रवाशांच्या खऱ्या कथा.',conh:'तुमचे स्वप्न प्रवास प्लान करा',conp:'तुम्हाला कुठे जायचे आहे ते सांगा.',cft:'मोफत कोटेशन मिळवा',fl1:'पूर्ण नाव',fl2:'फोन',fl3:'ठिकाण',fl4:'प्रवासाची तारीख',fl5:'प्रवासी',fl6:'संदेश',fsub:'चौकशी पाठवा ✈',ci1:'कॉल / व्हॉट्सअॅप',ci2:'ईमेल करा',ci3:'कामाचे तास',ci4:'कार्यालय',ec1:'विश्वासार्ह आणि प्रमाणित',ec2:'सर्वोत्तम किंमत गॅरंटी',ec3:'24/7 सहाय्य',ec4:'सानुकूल सहली',ec5:'200+ ठिकाणे',hb:'2010 पासून विश्वासार्ह प्रवास भागीदार'},
-  gu:{h1l1:'પવિત્ર ભારત',h1l2:'અને વિશ્વ',h1l3:'શોધો',hp:'પુરીના પવિત્ર મંદિરોથી કાશ્મીરની ધુમ્મસ ભરેલી ખીણો સુધી — દરેક પ્રવાસ પ્રેમ સાથે ઘડવામાં આવ્યો છે.',hbtn1:'પેકેજ જુઓ',hbtn2:'મફત ક્વોટ',sl1:'ખુશ પ્રવાસીઓ',sl2:'સ્થળો',sl3:'વર્ષોનો અનુભવ',sl4:'રેટિંગ',mh:'ભારતનો દરેક ખૂણો શોધો',mp:'કોઈ પણ રાજ્ય પર ક્લિક કરો.',dh:'ભારતના સૌથી સુંદર સ્થળો',dp:'દરેક પ્રદેશમાંથી પસંદ કરેલા સ્થળો.',pkh:'સૌથી સારા ભાવ પેકેજ',pkp:'દરેક બજેટ માટે પેકેજ.',wyh:'કિન્દોરા ફર્ક',wyp:'અમે આજીવન ટકતી યાદો બનાવીએ છીએ.',galh:'અમે બનાવેલ ક્ષણો',galp:'અમારા પ્રવાસીઓની અવિસ્મરણીય સફરની ઝલક.',tesh:'અમારા પ્રવાસીઓ શું કહે છે',tesp:'સાચા પ્રવાસીઓની સાચી વાર્તાઓ.',conh:'તમારી સ્વપ્ન સફર પ્લાન કરો',conp:'અમને જણાવો તમે ક્યાં જવા ઈચ્છો.',cft:'મફત ક્વોટ મેળવો',fl1:'પૂરું નામ',fl2:'ફોન',fl3:'સ્થળ',fl4:'સફર તારીખ',fl5:'પ્રવાસીઓ',fl6:'સંદેશ',fsub:'પૂછપરછ મોકલો ✈',ci1:'કૉલ / WhatsApp',ci2:'ઈમેઈલ',ci3:'કામના કલાકો',ci4:'ઓફિસ',ec1:'વિશ્વસનીય & પ્રમાણિત',ec2:'સૌથી સારા ભાવની ગેરંટી',ec3:'24/7 સહાય',ec4:'કસ્ટમ ટ્રિપ',ec5:'200+ સ્થળો',hb:'2010 થી વિશ્વસ્ત ટ્રાવેલ પાર્ટનર'},
-  kn:{h1l1:'ಪವಿತ್ರ ಭಾರತ',h1l2:'ಮತ್ತು ಜಗತ್ತನ್ನು',h1l3:'ಅನ್ವೇಷಿಸಿ',hp:'ಪುರಿಯ ಪವಿತ್ರ ದೇವಾಲಯಗಳಿಂದ ಕಾಶ್ಮೀರದ ಮಂಜು ಕಣಿವೆಗಳವರೆಗೆ — ಪ್ರತಿ ಪ್ರಯಾಣ ಪ್ರೀತಿಯಿಂದ ರೂಪಿಸಲ್ಪಟ್ಟಿದೆ.',hbtn1:'ಪ್ಯಾಕೇಜ್ ನೋಡಿ',hbtn2:'ಉಚಿತ ಕೋಟ್',sl1:'ಸಂತಸದ ಪ್ರಯಾಣಿಕರು',sl2:'ತಾಣಗಳು',sl3:'ವರ್ಷಗಳ ಅನುಭವ',sl4:'ರೇಟಿಂಗ್',mh:'ಭಾರತದ ಪ್ರತಿ ಮೂಲೆ ಅನ್ವೇಷಿಸಿ',mp:'ಯಾವುದಾದರೂ ರಾಜ್ಯ ಕ್ಲಿಕ್ ಮಾಡಿ.',dh:'ಭಾರತದ ಅತ್ಯಂದ ಸುಂದರ ಸ್ಥಳಗಳು',dp:'ಪ್ರತಿ ಪ್ರದೇಶದಿಂದ ಆಯ್ಕೆ ಮಾಡಿದ ತಾಣಗಳು.',pkh:'ಅತ್ಯುತ್ತಮ ಬೆಲೆ ಪ್ಯಾಕೇಜ್',pkp:'ಪ್ರತಿ ಬಜೆಟ್‌ಗೆ ಪ್ಯಾಕೇಜ್.',wyh:'ಕಿಂದೋರಾ ವ್ಯತ್ಯಾಸ',wyp:'ಜೀವನಪರ್ಯಂತ ನಿಲ್ಲುವ ನೆನಪುಗಳನ್ನು ರಚಿಸುತ್ತೇವೆ.',galh:'ನಾವು ರಚಿಸಿದ ಕ್ಷಣಗಳು',galp:'ನಮ್ಮ ಪ್ರಯಾಣಿಕರ ಅವಿಸ್ಮರಣೀಯ ಪ್ರಯಾಣದ ಒಂದು ನೋಟ.',tesh:'ನಮ್ಮ ಪ್ರಯಾಣಿಕರು ಏನು ಹೇಳುತ್ತಾರೆ',tesp:'ನಿಜವಾದ ಪ್ರಯಾಣಿಕರ ನಿಜವಾದ ಕಥೆಗಳು.',conh:'ನಿಮ್ಮ ಕನಸಿನ ಪ್ರಯಾಣ ಯೋಜಿಸಿ',conp:'ನೀವು ಎಲ್ಲಿ ಹೋಗಬೇಕೆಂದಿದ್ದೀರಿ ಹೇಳಿ.',cft:'ಉಚಿತ ಕೋಟ್ ಪಡೆಯಿರಿ',fl1:'ಪೂರ್ಣ ಹೆಸರು',fl2:'ಫೋನ್',fl3:'ತಾಣ',fl4:'ಪ್ರಯಾಣ ದಿನಾಂಕ',fl5:'ಪ್ರಯಾಣಿಕರು',fl6:'ಸಂದೇಶ',fsub:'ವಿಚಾರಣೆ ಕಳುಹಿಸಿ ✈',ci1:'ಕಾಲ್ / ವಾಟ್ಸ್ಆಪ್',ci2:'ಇಮೇಲ್',ci3:'ಕೆಲಸದ ಸಮಯ',ci4:'ಕಛೇರಿ',ec1:'ವಿಶ್ವಾಸಾರ್ಹ ಮತ್ತು ಪ್ರಮಾಣಿತ',ec2:'ಅತ್ಯುತ್ತಮ ಬೆಲೆ ಗ್ಯಾರಂಟಿ',ec3:'24/7 ಬೆಂಬಲ',ec4:'ಕಸ್ಟಮ್ ಪ್ರಯಾಣ',ec5:'200+ ತಾಣಗಳು',hb:'2010 ರಿಂದ ವಿಶ್ವಾಸಾರ್ಹ ಪ್ರಯಾಣ ಪಾಲುದಾರ'}
+  en:{h1l1:'Discover Sacred',h1l2:'India & The World',h1l3:'Beyond.',hp:'From the sacred temples of Puri to the misty valleys of Kashmir — every journey crafted with love.',hbtn1:'Explore Packages',hbtn2:'Get Free Quote',sl1:'Happy Travelers',sl2:'Destinations',sl3:'Years Experience',sl4:'Rating',mh:'Explore Every Corner of India',mp:'Click any state to discover attractions and packages.',dh:"India's Most Beautiful Places",dp:'Handpicked destinations across every region.',pkh:'Best Value Holiday Packages',pkp:'All-inclusive packages for every budget.',wyh:'The Kindora Difference',wyp:'We craft memories that last a lifetime.',galh:"Moments We've Created",galp:'A glimpse into journeys crafted for our travelers.',tesh:'What Our Travelers Say',tesp:'Real stories from real travelers.',conh:"Let's Plan Your Dream Journey",conp:'Tell us where you want to go.',cft:'Get a Free Quote',fl1:'Full Name',fl2:'Phone',fl3:'Destination',fl4:'Travel Date',fl5:'Travelers',fl6:'Message',fsub:'Send My Enquiry ✈',ci1:'Call / WhatsApp',ci2:'Email Us',ci3:'Working Hours',ci4:'Office',ec1:'Trusted & Certified',ec2:'Best Price Guarantee',ec3:'24/7 Support',ec4:'Custom Itineraries',ec5:'200+ Destinations',hb:'Trusted Travel Partner Since 2010'},
+  hi:{h1l1:'पवित्र भारत',h1l2:'और दुनिया की',h1l3:'खोज करें',hp:'पुरी के पवित्र मंदिरों से कश्मीर की घाटियों तक — हर यात्रा प्यार से बनाई गई।',hbtn1:'पैकेज देखें',hbtn2:'मुफ्त कोटेशन',sl1:'खुश यात्री',sl2:'गंतव्य',sl3:'वर्षों का अनुभव',sl4:'रेटिंग',mh:'भारत के हर कोने को खोजें',mp:'राज्य पर क्लिक करें और पर्यटन स्थल जानें।',dh:'भारत की सबसे खूबसूरत जगहें',dp:'हर क्षेत्र से चुने गए बेहतरीन गंतव्य।',pkh:'सर्वोत्तम मूल्य के पैकेज',pkp:'हर बजट के लिए ऑल-इंक्लूसिव पैकेज।',wyh:'किंदोरा की खासियत',wyp:'हम ऐसी यादें बनाते हैं जो जीवन भर रहती हैं।',galh:'हमारे बनाए पल',galp:'हमारे यात्रियों की अविस्मरणीय यात्राओं की झलक।',tesh:'हमारे यात्री क्या कहते हैं',tesp:'असली यात्रियों की असली कहानियां।',conh:'अपनी सपनों की यात्रा प्लान करें',conp:'बताइए आप कहां जाना चाहते हैं।',cft:'मुफ्त कोटेशन पाएं',fl1:'पूरा नाम',fl2:'फोन नंबर',fl3:'गंतव्य',fl4:'यात्रा की तारीख',fl5:'यात्री',fl6:'संदेश',fsub:'अपनी पूछताछ भेजें ✈',ci1:'कॉल / व्हाट्सएप',ci2:'ईमेल करें',ci3:'काम के घंटे',ci4:'कार्यालय',ec1:'विश्वसनीय और प्रमाणित',ec2:'सर्वोत्तम मूल्य की गारंटी',ec3:'24/7 सहायता',ec4:'कस्टम यात्रा कार्यक्रम',ec5:'200+ गंतव्य',hb:'2010 से विश्वसनीय यात्रा साथी'},
+  bn:{h1l1:'পবিত্র ভারত',h1l2:'এবং বিশ্ব',h1l3:'আবিষ্কার করুন',hp:'পুরীর পবিত্র মন্দির থেকে কাশ্মীরের উপত্যকা পর্যন্ত — প্রতিটি যাত্রা ভালোবাসায় তৈরি।',hbtn1:'প্যাকেজ দেখুন',hbtn2:'বিনামূল্যে কোটেশন',sl1:'সুখী ভ্রমণকারী',sl2:'গন্তব্য',sl3:'বছরের অভিজ্ঞতা',sl4:'রেটিং',mh:'ভারতের প্রতিটি কোণ আবিষ্কার করুন',mp:'যেকোনো রাজ্যে ক্লিক করুন।',dh:'ভারতের সবচেয়ে সুন্দর জায়গা',dp:'প্রতিটি অঞ্চল থেকে বাছাই করা গন্তব্য।',pkh:'সেরা মূল্যের প্যাকেজ',pkp:'প্রতিটি বাজেটের জন্য প্যাকেজ।',wyh:'কিন্দোরার পার্থক্য',wyp:'আমরা এমন স্মৃতি তৈরি করি যা সারাজীবন থাকে।',galh:'আমাদের তৈরি মুহূর্ত',galp:'আমাদের ভ্রমণকারীদের অবিস্মরণীয় যাত্রার ঝলক।',tesh:'আমাদের ভ্রমণকারীরা কী বলেন',tesp:'সত্যিকারের গল্প।',conh:'আপনার স্বপ্নের যাত্রা পরিকল্পনা করুন',conp:'আমাদের বলুন আপনি কোথায় যেতে চান।',cft:'বিনামূল্যে কোটেশন পান',fl1:'পুরো নাম',fl2:'ফোন নম্বর',fl3:'গন্তব্য',fl4:'ভ্রমণের তারিখ',fl5:'ভ্রমণকারী',fl6:'বার্তা',fsub:'অনুসন্ধান পাঠান ✈',ci1:'কল / হোয়াটসঅ্যাপ',ci2:'ইমেইল করুন',ci3:'কাজের সময়',ci4:'অফিস',ec1:'বিশ্বস্ত ও প্রমাণিত',ec2:'সেরা মূল্যের গ্যারান্টি',ec3:'২৪/৭ সহায়তা',ec4:'কাস্টম পরিকল্পনা',ec5:'২০০+ গন্তব্য',hb:'২০১০ থেকে বিশ্বস্ত ভ্রমণ সঙ্গী'},
+  ta:{h1l1:'புனித இந்தியா',h1l2:'மற்றும் உலகை',h1l3:'கண்டறியுங்கள்',hp:'புரியின் புனித கோயில்களிலிருந்து காஷ்மீரின் பள்ளத்தாக்குகள் வரை — ஒவ்வொரு பயணமும் அன்புடன் வடிவமைக்கப்பட்டது.',hbtn1:'பேக்கேஜ்களை காண்க',hbtn2:'இலவச மேற்கோள்',sl1:'மகிழ்ச்சியான பயணிகள்',sl2:'இடங்கள்',sl3:'ஆண்டுகள் அனுபவம்',sl4:'மதிப்பீடு',mh:'இந்தியாவின் ஒவ்வொரு மூலையையும் ஆராயுங்கள்',mp:'எந்த மாநிலத்திலும் கிளிக் செய்யுங்கள்.',dh:'இந்தியாவின் அழகான இடங்கள்',dp:'தேர்ந்தெடுக்கப்பட்ட இடங்கள்.',pkh:'சிறந்த விலை பேக்கேஜ்கள்',pkp:'எல்லா பட்ஜெட்டிற்கும் பேக்கேஜ்கள்.',wyh:'கிண்டோரா வித்தியாசம்',wyp:'ஆயுளில் நிலைக்கும் நினைவுகளை உருவாக்குகிறோம்.',galh:'நாங்கள் உருவாக்கிய தருணங்கள்',galp:'எங்கள் பயணிகளின் பயணங்களின் ஒரு பார்வை.',tesh:'எங்கள் பயணிகள் என்ன சொல்கிறார்கள்',tesp:'உண்மையான கதைகள்.',conh:'உங்கள் கனவு பயணத்தை திட்டமிடுங்கள்',conp:'நீங்கள் எங்கு போக விரும்புகிறீர்கள் சொல்லுங்கள்.',cft:'இலவச மேற்கோள் பெறுங்கள்',fl1:'முழு பெயர்',fl2:'தொலைபேசி',fl3:'இடம்',fl4:'பயண தேதி',fl5:'பயணிகள்',fl6:'செய்தி',fsub:'விசாரணை அனுப்பவும் ✈',ci1:'அழைப்பு / வாட்ஸ்ஆப்',ci2:'மின்னஞ்சல்',ci3:'பணி நேரம்',ci4:'அலுவலகம்',ec1:'நம்பகமான & சான்றளிக்கப்பட்ட',ec2:'சிறந்த விலை உத்தரவாதம்',ec3:'24/7 ஆதரவு',ec4:'தனிப்பயன் பயணங்கள்',ec5:'200+ இடங்கள்',hb:'2010 முதல் நம்பகமான பயண கூட்டாளர்'},
+  te:{h1l1:'పవిత్ర భారతం',h1l2:'మరియు ప్రపంచాన్ని',h1l3:'కనుగొనండి',hp:'పూరీ ఆలయాల నుండి కాశ్మీర్ లోయల వరకు — ప్రతి యాత్ర ప్రేమతో రూపొందించబడింది.',hbtn1:'ప్యాకేజీలు చూడండి',hbtn2:'ఉచిత కోటేషన్',sl1:'సంతోషమైన యాత్రికులు',sl2:'గమ్యస్థానాలు',sl3:'సంవత్సరాల అనుభవం',sl4:'రేటింగ్',mh:'భారతదేశంలోని ప్రతి మూలను అన్వేషించండి',mp:'ఏదైనా రాష్ట్రాన్ని క్లిక్ చేయండి.',dh:'భారతదేశంలోని అందమైన ప్రదేశాలు',dp:'ప్రతి ప్రాంతం నుండి ఎంపిక చేయబడిన గమ్యస్థానాలు.',pkh:'అత్యుత్తమ ప్యాకేజీలు',pkp:'అన్ని బడ్జెట్‌లకు ప్యాకేజీలు.',wyh:'కిందోరా తేడా',wyp:'జీవితాంతం నిలిచే జ్ఞాపకాలను సృష్టిస్తాం.',galh:'మేము సృష్టించిన క్షణాలు',galp:'మా యాత్రికుల అవిస్మరణీయ ప్రయాణాల ఒక సంక్షిప్తం.',tesh:'మా యాత్రికులు ఏమంటున్నారు',tesp:'నిజమైన కథలు.',conh:'మీ కల వంటి యాత్రను ప్లాన్ చేయండి',conp:'మీరు ఎక్కడికి వెళ్ళాలనుకుంటున్నారో చెప్పండి.',cft:'ఉచిత కోటేషన్ పొందండి',fl1:'పూర్తి పేరు',fl2:'ఫోన్',fl3:'గమ్యస్థానం',fl4:'ప్రయాణ తేది',fl5:'యాత్రికులు',fl6:'సందేశం',fsub:'విచారణ పంపండి ✈',ci1:'కాల్ / వాట్సాప్',ci2:'ఇమెయిల్',ci3:'పని గంటలు',ci4:'కార్యాలయం',ec1:'విశ్వసనీయమైన',ec2:'అత్యుత్తమ ధర హామీ',ec3:'24/7 మద్దతు',ec4:'కస్టమ్ ప్రయాణాలు',ec5:'200+ గమ్యస్థానాలు',hb:'2010 నుండి విశ్వసనీయ భాగస్వామి'},
+  mr:{h1l1:'पवित्र भारत',h1l2:'आणि जगाचा',h1l3:'शोध घ्या',hp:'पुरीच्या मंदिरांपासून काश्मीरच्या दऱ्यांपर्यंत — प्रत्येक प्रवास प्रेमाने बनवला आहे.',hbtn1:'पॅकेजेस पाहा',hbtn2:'मोफत कोटेशन',sl1:'आनंदी प्रवासी',sl2:'ठिकाणे',sl3:'वर्षांचा अनुभव',sl4:'रेटिंग',mh:'भारताचा प्रत्येक कोपरा एक्सप्लोर करा',mp:'कोणत्याही राज्यावर क्लिक करा.',dh:'भारतातील सर्वात सुंदर ठिकाणे',dp:'प्रत्येक प्रदेशातून निवडलेली ठिकाणे.',pkh:'सर्वोत्तम किंमत पॅकेजेस',pkp:'प्रत्येक बजेटसाठी पॅकेजेस.',wyh:'किंदोराचे वेगळेपण',wyp:'आम्ही आयुष्यभर टिकणाऱ्या आठवणी बनवतो.',galh:'आम्ही बनवलेले क्षण',galp:'आमच्या प्रवाशांच्या अविस्मरणीय प्रवासाची झलक.',tesh:'आमचे प्रवासी काय म्हणतात',tesp:'खऱ्या कथा.',conh:'तुमचे स्वप्न प्रवास प्लान करा',conp:'तुम्हाला कुठे जायचे आहे ते सांगा.',cft:'मोफत कोटेशन मिळवा',fl1:'पूर्ण नाव',fl2:'फोन',fl3:'ठिकाण',fl4:'तारीख',fl5:'प्रवासी',fl6:'संदेश',fsub:'चौकशी पाठवा ✈',ci1:'कॉल / व्हॉट्सअॅप',ci2:'ईमेल',ci3:'कामाचे तास',ci4:'कार्यालय',ec1:'विश्वासार्ह',ec2:'सर्वोत्तम किंमत',ec3:'24/7 सहाय्य',ec4:'सानुकूल सहली',ec5:'200+ ठिकाणे',hb:'2010 पासून विश्वासार्ह भागीदार'},
+  gu:{h1l1:'પવિત્ર ભારત',h1l2:'અને વિશ્વ',h1l3:'શોધો',hp:'પુરીના મંદિરોથી કાશ્મીરની ખીણો સુધી — દરેક પ્રવાસ પ્રેમ સાથે ઘડવામાં આવ્યો છે.',hbtn1:'પેકેજ જુઓ',hbtn2:'મફત ક્વોટ',sl1:'ખુશ પ્રવાસીઓ',sl2:'સ્થળો',sl3:'વર્ષોનો અનુભવ',sl4:'રેટિંગ',mh:'ભારતનો દરેક ખૂણો શોધો',mp:'કોઈ પણ રાજ્ય પર ક્લિક કરો.',dh:'ભારતના સૌથી સુંદર સ્થળો',dp:'દરેક પ્રદેશથી પસંદ કરેલા સ્થળો.',pkh:'સૌથી સારા ભાવ પેકેજ',pkp:'દરેક બજેટ માટે પેકેજ.',wyh:'કિન્દોરા ફર્ક',wyp:'આજીવન ટકતી યાદો.',galh:'અમે બનાવેલ ક્ષણો',galp:'અવિસ્મરણીય સફરની ઝલક.',tesh:'અમારા પ્રવાસીઓ શું કહે છે',tesp:'સાચી વાર્તાઓ.',conh:'સ્વપ્ન સફર પ્લાન કરો',conp:'અમને જણાવો ક્યાં જવા ઈચ્છો.',cft:'મફત ક્વોટ',fl1:'પૂરું નામ',fl2:'ફોન',fl3:'સ્થળ',fl4:'તારીખ',fl5:'પ્રવાસીઓ',fl6:'સંદેશ',fsub:'પૂછપરછ મોકલો ✈',ci1:'કૉલ / WhatsApp',ci2:'ઈમેઈલ',ci3:'કામના કલાકો',ci4:'ઓફિસ',ec1:'વિશ્વસનીય',ec2:'શ્રેષ્ઠ ભાવ',ec3:'24/7 સહાય',ec4:'કસ્ટમ ટ્રિપ',ec5:'200+ સ્થળો',hb:'2010 થી વિશ્વસ્ત'},
+  kn:{h1l1:'ಪವಿತ್ರ ಭಾರತ',h1l2:'ಮತ್ತು ಜಗತ್ತನ್ನು',h1l3:'ಅನ್ವೇಷಿಸಿ',hp:'ಪುರಿ ದೇವಾಲಯಗಳಿಂದ ಕಾಶ್ಮೀರ ಕಣಿವೆಗಳವರೆಗೆ — ಪ್ರತಿ ಪ್ರಯಾಣ ಪ್ರೀತಿಯಿಂದ ರೂಪಿಸಲ್ಪಟ್ಟಿದೆ.',hbtn1:'ಪ್ಯಾಕೇಜ್ ನೋಡಿ',hbtn2:'ಉಚಿತ ಕೋಟ್',sl1:'ಸಂತಸದ ಪ್ರಯಾಣಿಕರು',sl2:'ತಾಣಗಳು',sl3:'ವರ್ಷಗಳ ಅನುಭವ',sl4:'ರೇಟಿಂಗ್',mh:'ಭಾರತದ ಪ್ರತಿ ಮೂಲೆ ಅನ್ವೇಷಿಸಿ',mp:'ಯಾವುದಾದರೂ ರಾಜ್ಯ ಕ್ಲಿಕ್ ಮಾಡಿ.',dh:'ಭಾರತದ ಸುಂದರ ಸ್ಥಳಗಳು',dp:'ಪ್ರತಿ ಪ್ರದೇಶದಿಂದ ಆಯ್ಕೆ ಮಾಡಿದ ತಾಣಗಳು.',pkh:'ಅತ್ಯುತ್ತಮ ಬೆಲೆ ಪ್ಯಾಕೇಜ್',pkp:'ಪ್ರತಿ ಬಜೆಟ್‌ಗೆ ಪ್ಯಾಕೇಜ್.',wyh:'ಕಿಂದೋರಾ ವ್ಯತ್ಯಾಸ',wyp:'ಜೀವನಪರ್ಯಂತ ನೆನಪುಗಳನ್ನು ರಚಿಸುತ್ತೇವೆ.',galh:'ನಾವು ರಚಿಸಿದ ಕ್ಷಣಗಳು',galp:'ಅವಿಸ್ಮರಣೀಯ ಪ್ರಯಾಣದ ಒಂದು ನೋಟ.',tesh:'ನಮ್ಮ ಪ್ರಯಾಣಿಕರು ಏನು ಹೇಳುತ್ತಾರೆ',tesp:'ನಿಜವಾದ ಕಥೆಗಳು.',conh:'ನಿಮ್ಮ ಕನಸಿನ ಪ್ರಯಾಣ ಯೋಜಿಸಿ',conp:'ನೀವು ಎಲ್ಲಿ ಹೋಗಬೇಕೆಂದಿದ್ದೀರಿ ಹೇಳಿ.',cft:'ಉಚಿತ ಕೋಟ್',fl1:'ಪೂರ್ಣ ಹೆಸರು',fl2:'ಫೋನ್',fl3:'ತಾಣ',fl4:'ದಿನಾಂಕ',fl5:'ಪ್ರಯಾಣಿಕರು',fl6:'ಸಂದೇಶ',fsub:'ವಿಚಾರಣೆ ಕಳುಹಿಸಿ ✈',ci1:'ಕಾಲ್ / ವಾಟ್ಸ್ಆಪ್',ci2:'ಇಮೇಲ್',ci3:'ಸಮಯ',ci4:'ಕಛೇರಿ',ec1:'ವಿಶ್ವಾಸಾರ್ಹ',ec2:'ಅತ್ಯುತ್ತಮ ಬೆಲೆ',ec3:'24/7 ಬೆಂಬಲ',ec4:'ಕಸ್ಟಮ್ ಪ್ರಯಾಣ',ec5:'200+ ತಾಣಗಳು',hb:'2010 ರಿಂದ ವಿಶ್ವಾಸಾರ್ಹ'}
 };
 
 function switchLang(l){
@@ -1503,18 +1017,17 @@ function switchLang(l){
   set('ec1',d.ec1);set('ec2',d.ec2);set('ec3',d.ec3);set('ec4',d.ec4);set('ec5',d.ec5);
   document.getElementById('langSwitch').value=l;
 }
-
 function setActiveLang(btn){
   document.querySelectorAll('.lang-pill').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
 }
 
-// Chatbot
+// CHATBOT
 const CHAT={
   puri:'Great choice! 🛕 Puri packages:\n\n• 3N/4D Puri Darshan: ₹4,999/person\n• 4N/5D Puri-Bhubaneswar-Konark: ₹6,999/person\n• 6N/7D Odisha Complete: ₹9,499/person\n\nAll include hotel, breakfast & local transport. Want to book?',
   kerala:'Amazing! 🌴 Kerala packages:\n\n• 4N/5D Munnar & Alleppey: ₹8,999/person\n• 6N/7D Kerala Deluxe: ₹11,999/person\n• 8N/9D Kerala Premium: ₹16,999/person\n\nIncludes houseboat stay. Shall I send details?',
   srilanka:'🌺 Sri Lanka packages:\n\n• 5N/6D Explorer: ₹22,999/person\n• 7N/8D Complete: ₹28,999/person\n\nFlights, 4-star hotels, visa & guided tours included!',
-  malaysia:'🏙️ Malaysia packages:\n\n• 5N/6D Kuala Lumpur: ₹24,999/person\n• 7N/8D Malaysia Complete: ₹32,999/person\n• 6N/7D KL+Penang+Langkawi: ₹28,999/person',
+  malaysia:'🏙️ Malaysia packages:\n\n• 5N/6D Kuala Lumpur: ₹24,999/person\n• 7N/8D Complete: ₹32,999/person\n• 6N/7D KL+Penang+Langkawi: ₹28,999/person',
   budget:'💰 Budget picks under ₹10K:\n\n• Puri Weekend: ₹4,999/person\n• Tamil Nadu Circuit: ₹5,999/person\n• Darjeeling: ₹5,999/person\n• Kerala Economy: ₹7,999/person',
   kashmir:'❄️ Kashmir packages:\n\n• 5N/6D Kashmir Valley: ₹14,999/person\n• 7N/8D Kashmir+Ladakh: ₹22,999/person\n\nDal Lake, Gulmarg, Pahalgam included!',
   andaman:'🏝️ Andaman packages:\n\n• 4N/5D Port Blair+Havelock: ₹10,999/person\n• 6N/7D Complete: ₹14,999/person\n\nScuba diving & ferry included!',
@@ -1536,7 +1049,7 @@ function closeChat(){document.getElementById('chatWin').classList.remove('open')
 function addCMsg(txt,role){
   const el=document.getElementById('cmsgs');
   const d=document.createElement('div');
-  d.className='cmsg '+role;d.style.whiteSpace='pre-line';d.textContent=txt;
+  d.className='cmsg '+role;d.textContent=txt;
   el.appendChild(d);el.scrollTop=el.scrollHeight;
 }
 function showTyp(){
